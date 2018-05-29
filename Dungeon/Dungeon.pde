@@ -14,6 +14,9 @@ public void setup() {
 
 public void draw() {
   background(255);
+  System.out.println(x + " " + y);
+    checkWalls();
+
   rect(x,y,50,50);
 }
 
@@ -28,5 +31,17 @@ public void keyPressed() {
     } else if (keyCode == RIGHT) {
       x += 5; 
     }
+  }
+}
+
+public void checkWalls(){
+  if (x < 0){
+     x = 0; 
+  } else if (x > width - 50){
+     x = width - 50; 
+  } else if (y > height - 50){
+     y = height - 50;
+  } else if (y < 0){
+     y = 0; 
   }
 }
