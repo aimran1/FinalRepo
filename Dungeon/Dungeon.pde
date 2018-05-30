@@ -1,5 +1,6 @@
 float x = 400.0;
 float y = 400.0;
+PImage img;
 
 public void setup() {
   size(900, 800);
@@ -8,16 +9,15 @@ public void setup() {
 
 // Bright red
   fill(255,0,150);
-  rect(x,y,50,50);
+  img = loadImage("link.png");
 }
 
 
 public void draw() {
   background(255);
   System.out.println(x + " " + y);
-    checkWalls();
-
-  rect(x,y,50,50);
+  checkWalls();
+  image(img, x, y, img.width/6, img.height/6);
 }
 
 public void keyPressed() {
@@ -37,10 +37,10 @@ public void keyPressed() {
 public void checkWalls(){
   if (x < 0){
      x = 0; 
-  } else if (x > width - 50){
-     x = width - 50; 
-  } else if (y > height - 50){
-     y = height - 50;
+  } else if (x > width - img.width/6){
+     x = width - img.width/6; 
+  } else if (y > height - img.height/6){
+     y = height - img.height/6;
   } else if (y < 0){
      y = 0; 
   }
