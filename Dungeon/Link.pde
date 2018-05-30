@@ -50,6 +50,22 @@ class Link{
     y+=vy;
   }
   
+  float getX(){
+    return x;
+  }
+  
+  float getY(){
+   return y; 
+  }
+  
+  float getLowY(){
+   return y + Dheight; 
+  }
+  
+  float getRightX(){
+   return x + Dwidth; 
+  }
+  
   void display(){
     //rect(x,y,Dwidth,Dheight);
    image(current,x,y); 
