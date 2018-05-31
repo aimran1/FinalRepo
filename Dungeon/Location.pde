@@ -24,10 +24,10 @@ class Location{
   
   void playerCollision(Link L){
     if(( inVerti(L.getY()) || inVerti(L.getLowY()) ) &&  (inHori(L.getX()) || inHori(L.getRightX()))){
-      L.x-=L.vx;
-      L.y-=L.vy;
-      /*
-      if(inHori(L.getX()) && !inHori(L.getRightX())){
+      L.x-=L.vx-1;
+      L.y-=L.vy-1;
+      
+     /* if(inHori(L.getX()) && !inHori(L.getRightX())){
         L.x = rightX;
       }
       if(inHori(L.getRightX()) && !inHori(L.getX())){
@@ -38,8 +38,8 @@ class Location{
       }
       if(inVerti(L.getLowY()) && !inVerti(L.getY())){
         L.y = y-L.Dheight;
-      }
-      */
+      }*/
+      
     }
   }
   

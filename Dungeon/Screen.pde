@@ -9,7 +9,7 @@ class Screen{
    for(int x = 0; x < elements.length;x++){
     elements[x].update(l);
   }
- }
+}
  
  void display(){
    for(int x = 0; x < elements.length;x++){
