@@ -3,14 +3,18 @@ class Link{
   float Dwidth = 16;
   float Dheight = 22;
   PImage current;
-  PImage StandUp;
+  PImage StandDown;
   PImage StandRight;
+  PImage StandUp;
+  PImage StandLeft;
   Link(){
    x = width/2;
    y = height/2;
-   StandUp = loadImage("StandingLink.png");
+   StandDown = loadImage("StandingLink.png");
    StandRight = loadImage("StandingRight.png");
-   current = StandUp;
+   StandUp = loadImage("StandingUp.png");
+   StandLeft = loadImage("StandingLeft.png");
+   current = StandDown;
   }
   
   void moveInput(char f){
@@ -20,27 +24,29 @@ class Link{
     }
     if(f == 'w'){
       vy = -5;
+      current = StandUp;
     }
     if(f == 'a'){
       vx = -5;
+      current = StandLeft;
     }
     if(f == 's'){
       vy = 5;
-      current = StandUp;
+      current = StandDown;
     }
   }
   
   void unInput(char f){
-    if(f == 'd'){
+    if(f == 'd' && vx == 5){
       vx = 0;
     }
-    if(f == 'w'){
+    if(f == 'w' && vy == -5){
       vy = 0;
     }
-    if(f == 'a'){
+    if(f == 'a' && vx == -5){
       vx = 0;
     }
-    if(f == 's'){
+    if(f == 's' && vy == 5){
       vy = 0;
     }
   }
