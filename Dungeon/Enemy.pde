@@ -33,7 +33,7 @@ class Enemy{
   }
   
   void pursue(){
-      
+    
   }
   
   float getX(){
