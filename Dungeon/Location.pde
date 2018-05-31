@@ -19,22 +19,14 @@ class Location{
   }
   
   void playerCollision(Link L){
-    if(!inVerti(L.getLowY()) && inVerti(L.getY()) && (inHori(L.getX()) || inHori(L.getRightX()))){
-      L.y = botY;
-    }
-    if(!inVerti(L.getY()) && inVerti(L.getLowY()) && (inHori(L.getX()) || inHori(L.getRightX()))){
-      L.y = y-L.Dheight;
-    }
-    if(inHori(L.getX()) && (inVerti(L.getY()) || inVerti(L.getLowY()))){
-      L.x = rightX;
-    }
-    if(inHori(L.getRightX()) && (inVerti(L.getY()) || inVerti(L.getLowY()))){
-      L.x = x+L.Dwidth;
+    if(( inVerti(L.getY()) || inVerti(L.getLowY()) ) &&  (inHori(L.getX()) || inHori(L.getRightX()))){
+      L.x-=L.vx;
+      L.y-=L.vy;
     }
   }
   
   void display(){
-    fill(255);
+    fill(0);
    rect(x,y,w,h); 
   }
 }
