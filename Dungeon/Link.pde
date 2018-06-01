@@ -7,7 +7,7 @@ class Link{
   PImage StandRight;
   PImage StandUp;
   PImage StandLeft;
-  int hp;
+  int hp,invincibleTime;
   Link(){
    x = width/2-width/2%5;
    y = height/2-width/2%5;
@@ -60,6 +60,7 @@ class Link{
     if(get((int)(x),(int)(y+vy))==color(255) && get((int)(x+Dwidth),(int)(y+vy))==color(255) && get((int)(x),(int)(y+Dheight+vy))==color(255) && get((int)(x+Dwidth),(int)(y+Dheight+vy))==color(255)){
       y+=vy;
     }
+    invincibleTime--;
   }
   
   //trying to go dirctly against wall
@@ -93,7 +94,10 @@ class Link{
   }
   
   void hurt(int dam){
+   if(!(invincibleTime > 0)){
    hp -= dam;
+   invincibleTime = 30;
+   }
   }
   
   void display(){

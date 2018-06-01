@@ -68,7 +68,7 @@ class Enemy{
   
   void playerCollision(Link G){
    if((inBet(G.getY(),y,y+Dheight)||inBet(G.getLowY(),y,y+Dheight)) && (inBet(G.getX(),x,x+Dwidth)||inBet(G.getRightX(),x,x+Dwidth))){
-     G.hurt(17);
+     G.hurt(4);
    }
   }
   

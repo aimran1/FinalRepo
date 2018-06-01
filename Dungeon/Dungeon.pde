@@ -8,7 +8,7 @@ public void setup() {
   s = new Screen(false);
   test = new Enemy();
   //dL = new Location[1];
-  //dL[0] = new Location(70,40,30,20);
+  //dL[0] = new Location(70,40,29.9,19.9);
 }
 public void draw() {
   background(255);
