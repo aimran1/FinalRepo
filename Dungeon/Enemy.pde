@@ -21,30 +21,29 @@ class Enemy{
   }
   
   void update(Link fg){
-    target = new PVector(fg.getX()-getX(), fg.getY()- getY());
-    target.normalize();
-    target.x *= speed;
-    target.y *= speed;
-    x += target.x;
-    y += target.y;
-    /*if (turn){
-      x -= vx;
-      y -= vy;
-      steps += 1;
+    if (abs(fg.getX() - getX()) <= 10 || (abs(fg.getY() - getY()) <= 10)){
+      target = new PVector(fg.getX()-getX(), fg.getY()- getY());
+      target.normalize();
+      target.x *= speed;
+      target.y *= speed;
+      x += target.x;
+      y += target.y;
     } else {
-      x += vx;
-      y += vy;
-      steps += 1;
+      if (turn){
+        x -= vx;
+        y -= vy;
+        steps += 1;
+      } else {
+        x += vx;
+        y += vy;
+        steps += 1;
+      }
+      if (steps == 200){
+        steps = 0;
+         turn = !turn; 
+      }
     }
-    if (steps == 250){
-      steps = 0;
-       turn = !turn; 
-    }*/
     playerCollision(fg);
-  }
-  
-  void pursue(Link a){
-    
   }
   
   float getX(){
