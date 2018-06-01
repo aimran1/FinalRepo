@@ -22,7 +22,7 @@ class Enemy{
   
   void update(Link fg){
     target = new PVector(fg.getX()-getX(), fg.getY()- getY());
-    if (target.dist(target) < 10){
+    if (sqrt(pow(target.x,2)+pow(target.y,2)) < 100){
       target.normalize();
       target.x *= speed;
       target.y *= speed;
