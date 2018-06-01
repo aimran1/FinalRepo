@@ -1,12 +1,11 @@
 class Enemy{
   float x,y,vx,vy;
+  float angle, speed;
   int steps;
   boolean turn;
   float Dwidth = 16;
   float Dheight = 22;
-  float speed, angle;
   PImage current;
-  PVector myPos, target, player;
   Enemy(){
    x = width/2;
    y = height/2;
@@ -14,20 +13,13 @@ class Enemy{
    current.resize(20,25);
    vx = 1;
    vy = 0;
-  // myPoa = new PVector(getX(), getY());
-   speed = 3;
    steps = 0;
    turn = false;
+   speed = 5;
   }
   
-  void update(Link fg){
-    target = new PVector(fg.getX()-getX(), fg.getY()- getY());
-    target.normalize();
-    target.x *= speed;
-    target.y *= speed;
-    x += target.x;
-    y += target.y;
-    /*if (turn){
+  void update(Link l){
+   if (turn){
       x -= vx;
       y -= vy;
       steps += 1;
@@ -36,15 +28,17 @@ class Enemy{
       y += vy;
       steps += 1;
     }
+    pursue(l);
+    steps += 1;
     if (steps == 250){
       steps = 0;
-       turn = !turn; 
-    }*/
-    playerCollision(fg);
+      turn = !turn;
+    }    
   }
   
-  void pursue(Link a){
-    
+  void pursue(Link l){
+    angle = atan((this.getY()-l.getY())/(this.getX()-l.getX()));
+    translate();
   }
   
   float getX(){
@@ -67,13 +61,4 @@ class Enemy{
    image(current,x,y); 
   }
   
-  void playerCollision(Link G){
-   if((inBet(G.getY(),y,y+Dheight)||inBet(G.getLowY(),y,y+Dheight)) && (inBet(G.getX(),x,x+Dwidth)||inBet(G.getRightX(),x,x+Dwidth))){
-     G.hurt(17);
-   }
-  }
-  
-  boolean inBet(float value, float f, float g){
-    return value >= f && value <= g;
-  }
 }
