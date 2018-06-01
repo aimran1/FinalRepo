@@ -7,14 +7,16 @@ class Link{
   PImage StandRight;
   PImage StandUp;
   PImage StandLeft;
+  int hp;
   Link(){
-   x = width/2;
-   y = height/2;
+   x = width/2-width/2%5;
+   y = height/2-width/2%5;
    StandDown = loadImage("StandingLink.png");
    StandRight = loadImage("StandingRight.png");
    StandUp = loadImage("StandingUp.png");
    StandLeft = loadImage("StandingLeft.png");
    current = StandDown;
+   hp = 40;
   }
   
   void moveInput(char f){
@@ -52,8 +54,26 @@ class Link{
   }
   
   void update(){
-    x+=vx;
-    y+=vy;
+    if(get((int)(x+vx),(int)(y))==color(255) && get((int)(x+Dwidth+vx),(int)(y))==color(255) && get((int)(x+vx),(int)(y+Dheight))==color(255) && get((int)(x+Dwidth+vx),(int)(y+Dheight))==color(255)){
+      x+=vx;
+    }
+    if(get((int)(x),(int)(y+vy))==color(255) && get((int)(x+Dwidth),(int)(y+vy))==color(255) && get((int)(x),(int)(y+Dheight+vy))==color(255) && get((int)(x+Dwidth),(int)(y+Dheight+vy))==color(255)){
+      y+=vy;
+    }
+  }
+  
+  //trying to go dirctly against wall
+    void update2(){
+      float vxe = vx;
+      float vye = vy;
+    while(vxe >= 0 && get((int)(x+vxe),(int)(y))!=color(255) && get((int)(x+Dwidth+vxe),(int)(y))!=color(255) && get((int)(x+vxe),(int)(y+Dheight))!=color(255) && get((int)(x+Dwidth+vxe),(int)(y+Dheight))!=color(255)){
+      vxe-=vxe%5;
+    }
+    x+=vxe;
+    while(vye >= 0 && get((int)(x),(int)(y+vye))!=color(255) && get((int)(x+Dwidth),(int)(y+vye))!=color(255) && get((int)(x),(int)(y+Dheight+vye))!=color(255) && get((int)(x+Dwidth),(int)(y+Dheight+vye))!=color(255)){
+      vye-=vye%5;
+    }
+    y+=vye;
   }
   
   float getX(){
@@ -70,6 +90,10 @@ class Link{
   
   float getRightX(){
    return x + Dwidth; 
+  }
+  
+  void hurt(int dam){
+   hp -= dam;
   }
   
   void display(){

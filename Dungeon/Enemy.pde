@@ -16,7 +16,7 @@ class Enemy{
    turn = false;
   }
   
-  void update(){
+  void update(Link fg){
     if (turn){
       x -= vx;
       y -= vy;
@@ -30,6 +30,7 @@ class Enemy{
       steps = 0;
        turn = !turn; 
     }
+    playerCollision(fg);
   }
   
   void pursue(){
@@ -56,4 +57,13 @@ class Enemy{
    image(current,x,y); 
   }
   
+  void playerCollision(Link G){
+   if((inBet(G.getY(),y,y+Dheight)||inBet(G.getLowY(),y,y+Dheight)) && (inBet(G.getX(),x,x+Dwidth)||inBet(G.getRightX(),x,x+Dwidth))){
+     G.hurt(17);
+   }
+  }
+  
+  boolean inBet(float value, float f, float g){
+    return value >= f && value <= g;
+  }
 }

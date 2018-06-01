@@ -13,16 +13,17 @@ public void setup() {
 public void draw() {
   background(255);
   fill(0);
-  s.update(Player);
+  s.display();
+  //s.update(Player);
   Player.update();
-  test.update();
+  test.update(Player);
   //for(int x = 0; x < dL.length;x++){
   //  dL[x].playerCollision(Player);
   //}
-  s.display();
+  
   Player.display();
   test.display();
-  text(frameRate, 100, 100);
+  text(Player.hp, 100, 100);
 }
 
 public void keyPressed(){

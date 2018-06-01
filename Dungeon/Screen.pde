@@ -5,11 +5,13 @@ class Screen{
   elements[0] = new Location(70,40,30,20);
  }
  
+ /*
  void update(Link l){
    for(int x = 0; x < elements.length;x++){
-    elements[x].update(l);
+    elements[x];
   }
 }
+ */
  
  void display(){
    for(int x = 0; x < elements.length;x++){
