@@ -21,14 +21,15 @@ class Enemy{
   }
   
   void update(Link fg){
-    if (abs(fg.getX() - getX()) <= 10 || (abs(fg.getY() - getY()) <= 10)){
-      target = new PVector(fg.getX()-getX(), fg.getY()- getY());
+    target = new PVector(fg.getX()-getX(), fg.getY()- getY());
+    if (target.dist(target) < 10){
       target.normalize();
       target.x *= speed;
       target.y *= speed;
       x += target.x;
       y += target.y;
-    } else {
+    } 
+    else {
       if (turn){
         x -= vx;
         y -= vy;
