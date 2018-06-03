@@ -8,6 +8,12 @@ class Link{
   PImage StandUp;
   PImage StandLeft;
   int hp,invincibleTime;
+  int facing;
+  final int right = 0;
+  final int up = 1;
+  final int left = 2;
+  final int down = 3;
+  
   Link(){
    x = width/2-width/2%5;
    y = height/2-width/2%5;
@@ -23,18 +29,22 @@ class Link{
     if(f == 'd'){
       vx = 5;
       current = StandRight;
+      facing = right;
     }
     if(f == 'w'){
       vy = -5;
       current = StandUp;
+      facing = up;
     }
     if(f == 'a'){
       vx = -5;
       current = StandLeft;
+      facing = left;
     }
     if(f == 's'){
       vy = 5;
       current = StandDown;
+      facing = down;
     }
   }
   
@@ -96,7 +106,7 @@ class Link{
   void hurt(int dam){
    if(!(invincibleTime > 0)){
    hp -= dam;
-   invincibleTime = 30;
+   invincibleTime = 120;
    }
   }
   

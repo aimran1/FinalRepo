@@ -1,4 +1,4 @@
-class Enemy{
+class Enemy extends Attack{
   float x,y,vx,vy;
   int steps;
   boolean turn;
@@ -7,6 +7,7 @@ class Enemy{
   float speed, angle;
   PImage current;
   PVector myPos, target, player;
+  int hp;
   Enemy(){
    x = width/2;
    y = height/2;
@@ -18,6 +19,7 @@ class Enemy{
    speed = 3;
    steps = 0;
    turn = false;
+   hp = 20;
   }
   
   void update(Link fg){
@@ -65,6 +67,14 @@ class Enemy{
   
   void display(){
    image(current,x,y); 
+  }
+  
+  void hurt(int dam){
+    hp-=dam;
+  }
+  
+  int getHP(){
+    return hp;
   }
   
   void playerCollision(Link G){
