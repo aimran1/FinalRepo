@@ -3,7 +3,7 @@ Link Player;
 Screen s;
 //Location[] dL;
 public void setup() {
-  size(600, 300);
+  size(1200, 873);
   Player = new Link();
   s = new Screen(false);
   //test = new Enemy();

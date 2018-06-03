@@ -1,4 +1,5 @@
 import java.io.*;
+PImage screen;
 class Screen{
  Location[] elements; 
  Enemy[] enemies;
@@ -10,6 +11,7 @@ class Screen{
   enemies[0] = new Enemy();
   LivingBad = new ArrayList<Enemy>();
   LivingBad.add(new Enemy());
+  screen = loadImage("Start.PNG");
  }
  
 
@@ -27,6 +29,7 @@ class Screen{
    for(int x = 0; x < elements.length;x++){
     elements[x].display();
   }
+  image(screen, 0,  0);
  }
  
  void coolDisplay(){
