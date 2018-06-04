@@ -2,31 +2,32 @@ Link Player;
 Screen s;
 boolean clickO;
 float[] param1;
-//Enemy test;
-//Location[] dL;
+ArrayList<Location> tests;
 public void setup() {
   size(1200, 873);
   Player = new Link();
   s = new Screen(false);
-  //test = new Enemy();
-  //dL = new Location[1];
-  //dL[0] = new Location(70,40,29.9,19.9);
+  
+  //test code
+  tests = new ArrayList();
 }
 public void draw() {
   background(255);
   fill(0);
   s.display();
+  
+  //test code
+  for(Location jerr: tests){
+    jerr.display();
+  }
+  
+  
   s.update(Player);
   Player.update();
-  //test.update(Player);
-  //for(int x = 0; x < dL.length;x++){
-  //  dL[x].playerCollision(Player);
-  //}
   image(s.map(),0,0);
   Player.display();
 
   s.coolDisplay();
-  //test.display();
   text(Player.hp, 100, 100);
 }
 
@@ -39,9 +40,9 @@ public void keyReleased(){
 }
 
 public void mouseClicked(){
- //println(""+ mouseX+ ", " + mouseY); 
  if(clickO){
-  System.out.println("Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ')"); 
+  System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ')"); 
+  tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' '));
   clickO = false;
  }
  else{

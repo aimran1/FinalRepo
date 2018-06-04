@@ -63,9 +63,13 @@ class Link{
     }
   }
   
+  boolean walkableX(){
+    return get((int)(x+vx),(int)(y))==color(255) && get((int)(x+Dwidth+vx),(int)(y))==color(255) && get((int)(x+vx),(int)(y+Dheight))==color(255) && get((int)(x+Dwidth+vx),(int)(y+Dheight))==color(255);
+  }
+  
   void update(){
-    if(get((int)(x+vx),(int)(y))==color(255) && get((int)(x+Dwidth+vx),(int)(y))==color(255) && get((int)(x+vx),(int)(y+Dheight))==color(255) && get((int)(x+Dwidth+vx),(int)(y+Dheight))==color(255)){
-      x+=vx;
+    if(//get((int)(x+vx),(int)(y))==color(255) && get((int)(x+Dwidth+vx),(int)(y))==color(255) && get((int)(x+vx),(int)(y+Dheight))==color(255) && get((int)(x+Dwidth+vx),(int)(y+Dheight))==color(255)){
+      walkableX()){x+=vx;
     }
     if(get((int)(x),(int)(y+vy))==color(255) && get((int)(x+Dwidth),(int)(y+vy))==color(255) && get((int)(x),(int)(y+Dheight+vy))==color(255) && get((int)(x+Dwidth),(int)(y+Dheight+vy))==color(255)){
       y+=vy;
