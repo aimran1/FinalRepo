@@ -1,4 +1,4 @@
-abstract class Attack{
+class Attack{
   
   float x,y,Dwidth,Dheight;
   boolean isLinks;

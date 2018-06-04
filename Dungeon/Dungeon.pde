@@ -3,6 +3,7 @@ Screen s;
 boolean clickO;
 float[] param1;
 ArrayList<Location> tests;
+Attack continuous;
 public void setup() {
   size(1200, 873);
   Player = new Link();
