@@ -1,6 +1,8 @@
 Link Player;
-//Enemy test;
 Screen s;
+boolean clickO;
+float[] param1;
+//Enemy test;
 //Location[] dL;
 public void setup() {
   size(1200, 873);
@@ -34,4 +36,18 @@ public void keyPressed(){
 
 public void keyReleased(){
   Player.unInput(key); 
+}
+
+public void mouseClicked(){
+ //println(""+ mouseX+ ", " + mouseY); 
+ if(clickO){
+  System.out.println("Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ')"); 
+  clickO = false;
+ }
+ else{
+  param1 = new float[2];
+  param1[0] = mouseX;
+  param1[1] = mouseY;
+  clickO=true;
+ }
 }

@@ -5,8 +5,13 @@ class Screen{
  Enemy[] enemies;
  ArrayList<Enemy> LivingBad;
  Screen(boolean f){ 
-  elements = new Location[1];
+  elements = new Location[5];
   elements[0] = new Location(70,40,30,20);
+  elements[1] = new Location(340.0,435.0,135.0,99.0,' ');
+  elements[2] = new Location(240.0,88.0,100.0,752.0,' ');
+  elements[3] = new Location(241.0,91.0,184.0,97.0,' ');
+  elements[4] = new Location(394.0,224.0,99.0,153.0,' ')
+; 
   enemies=new Enemy[10];
   enemies[0] = new Enemy();
   LivingBad = new ArrayList<Enemy>();
