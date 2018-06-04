@@ -20,8 +20,9 @@ public void draw() {
   //for(int x = 0; x < dL.length;x++){
   //  dL[x].playerCollision(Player);
   //}
-  
+  image(s.map(),0,0);
   Player.display();
+
   s.coolDisplay();
   //test.display();
   text(Player.hp, 100, 100);

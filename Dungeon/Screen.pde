@@ -29,13 +29,15 @@ class Screen{
    for(int x = 0; x < elements.length;x++){
     elements[x].display();
   }
-  image(screen, 0,  0);
  }
  
  void coolDisplay(){
-  
   for(Enemy bad: LivingBad){
     bad.display();
   } 
+ }
+ 
+ PImage map(){
+   return screen;
  }
 }
