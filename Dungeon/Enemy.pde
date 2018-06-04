@@ -22,20 +22,38 @@ class Enemy extends Attack{
    hp = 20;
   }
   
+  
+  Enemy(float X, float Y, String Image){
+   x = X;
+   y = Y;
+   current = loadImage(Image);
+   current.resize(20,25);
+   vx = 1;
+   vy = 0;
+  // myPoa = new PVector(getX(), getY());
+   speed = 3;
+   steps = 0;
+   turn = false;
+   hp = 20;
+  }
+  
   void update(Link fg){
     target = new PVector(fg.getX()-getX(), fg.getY()- getY());
+    
+      float temp = vx;
+      float tempy = vy;
     if (sqrt(pow(target.x,2)+pow(target.y,2)) < 100){
       target.normalize();
       target.x *= speed;
       target.y *= speed;
-      float temp = vx;
-      float tempy = vy;
       vx = target.x;
       vy = target.y;
       if(walkableX())
         x += vx;
         if(walkableY())
         y += vy;
+        
+        
       vx = temp;
       vy = tempy;
     } 
@@ -65,6 +83,7 @@ class Enemy extends Attack{
       }
     }
     playerCollision(fg);
+    
   }
   
   float getX(){

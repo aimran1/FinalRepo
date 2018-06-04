@@ -1,5 +1,6 @@
 class Link{
   float x,y,vx,vy;
+  float frontLeftX,frontLeftY,frontRightX, FrontRightY; 
   float Dwidth = 16;
   float Dheight = 22;
   PImage current;
