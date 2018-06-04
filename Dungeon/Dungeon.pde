@@ -34,6 +34,9 @@ public void draw() {
 
 public void keyPressed(){
  Player.moveInput(key); 
+ if(key == TAB){
+   tests.remove(tests.size()-1);
+ }
 }
 
 public void keyReleased(){
