@@ -28,16 +28,34 @@ class Enemy extends Attack{
       target.normalize();
       target.x *= speed;
       target.y *= speed;
-      x += target.x;
-      y += target.y;
+      float temp = vx;
+      float tempy = vy;
+      vx = target.x;
+      vy = target.y;
+      if(walkableX())
+        x += vx;
+        if(walkableY())
+        y += vy;
+      vx = temp;
+      vy = tempy;
     } 
     else {
       if (turn){
-        x -= vx;
-        y -= vy;
+        vx*=-1;
+        vy*=-1;
+        
+        if(walkableX())
+        x += vx;
+        if(walkableY())
+        y += vy;
+        
+        vx*=-1;
+        vy*=-1;
         steps += 1;
       } else {
+        if(walkableX())
         x += vx;
+        if(walkableY())
         y += vy;
         steps += 1;
       }
@@ -85,5 +103,13 @@ class Enemy extends Attack{
   
   boolean inBet(float value, float f, float g){
     return value >= f && value <= g;
+  }
+  
+    boolean walkableX(){
+    return get((int)(x+vx),(int)(y))==color(255) && get((int)(x+Dwidth+vx),(int)(y))==color(255) && get((int)(x+vx),(int)(y+Dheight))==color(255) && get((int)(x+Dwidth+vx),(int)(y+Dheight))==color(255);
+  }
+  
+  boolean walkableY(){
+    return get((int)(x),(int)(y+vy))==color(255) && get((int)(x+Dwidth),(int)(y+vy))==color(255) && get((int)(x),(int)(y+Dheight+vy))==color(255) && get((int)(x+Dwidth),(int)(y+Dheight+vy))==color(255);
   }
 }
