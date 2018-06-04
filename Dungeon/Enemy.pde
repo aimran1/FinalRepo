@@ -34,7 +34,7 @@ class Enemy extends Attack{
       vy = target.y;
       if(walkableX())
         x += vx;
-        if(walkableY())
+      if(walkableY())
         y += vy;
       vx = temp;
       vy = tempy;
@@ -59,10 +59,13 @@ class Enemy extends Attack{
         y += vy;
         steps += 1;
       }
+   /*   if (!walkableX() && !walkableY()){
+        steps = 200;
+      }*/
       if (steps == 200){
         steps = 0;
-         turn = !turn; 
-      }
+        turn = !turn; 
+      } 
     }
     playerCollision(fg);
   }
