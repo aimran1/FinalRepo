@@ -25,7 +25,7 @@ public void draw() {
   
   s.update(Player);
   Player.update();
-  image(s.map(),0,0);
+  //image(s.map(),0,0);
   Player.display();
 
   s.coolDisplay();
@@ -34,6 +34,9 @@ public void draw() {
 
 public void keyPressed(){
  Player.moveInput(key); 
+ if(key == TAB){
+   tests.remove(tests.size()-1);
+ }
 }
 
 public void keyReleased(){
