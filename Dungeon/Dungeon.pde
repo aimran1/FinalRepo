@@ -25,7 +25,7 @@ public void draw() {
   
   s.update(Player);
   Player.update();
- //image(s.map(),0,0);
+  image(s.map(),0,0);
   Player.display();
 
   s.coolDisplay();

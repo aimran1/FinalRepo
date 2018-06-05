@@ -2,11 +2,11 @@ import java.io.*;
 PImage screen;
 class Screen{
  Location[] elements; 
+ Location[] gates;
  Enemy[] enemies;
  ArrayList<Enemy> LivingBad;
  Screen(boolean f){ 
   elements = new Location[38];
-  
   elements[0] = new Location(483.0,88.0,230.0,78.0,' ',0);
   elements[1] = new Location(394.0,223.0,98.0,154.0,' ',0);
   elements[2] = new Location(474.0,167.0,15.0,55.0,' ',0);
@@ -47,8 +47,15 @@ class Screen{
   elements[37] = new Location(621.0,839.0,238.0,-7.0,' ',0);
 
 
-
-
+  gates = new Location[8];
+  gates[0] = new Location(1046.0,13.0,30.0,34.0,' ',color(0,0,225));
+  gates[1] = new Location(738.0,14.0,28.0,25.0,' ',color(0,0,225));
+  gates[2] = new Location(429.0,16.0,30.0,33.0,' ',color(0,0,225));
+  gates[3] = new Location(121.0,15.0,27.0,20.0,' ',color(0,0,225));
+  gates[4] = new Location(15.0,729.0,28.0,27.0,' ',color(0,0,225));
+  gates[5] = new Location(14.0,110.0,30.0,33.0,' ',color(0,0,225));
+  gates[6] =new Location(1185.0,760.0,-30.0,-31.0,' ',color(0,0,225));
+  gates[7] = new Location(1162.0,418.0,21.0,34.0,' ',color(125,0,125));
 
 
 
@@ -75,10 +82,13 @@ class Screen{
 
  
  void display(){
-   for(int x = 0; x < elements.length;x++){
+  for(int x = 0; x < elements.length;x++){
     elements[x].display();
   }
- }
+ for(int x = 0; x < gates.length;x++){
+    gates[x].display();
+  } 
+}
  
  void coolDisplay(){
   for(Enemy bad: LivingBad){
