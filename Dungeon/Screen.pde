@@ -47,16 +47,16 @@ class Screen{
   elements[37] = new Location(621.0,839.0,238.0,-7.0,' ',0);
 
 
-  gates = new Location[8];
-  gates[0] = new Location(1046.0,13.0,30.0,34.0,' ',color(0,0,225));
-  gates[1] = new Location(738.0,14.0,28.0,25.0,' ',color(0,0,225));
-  gates[2] = new Location(429.0,16.0,30.0,33.0,' ',color(0,0,225));
-  gates[3] = new Location(121.0,15.0,27.0,20.0,' ',color(0,0,225));
-  gates[4] = new Location(15.0,729.0,28.0,27.0,' ',color(0,0,225));
-  gates[5] = new Location(14.0,110.0,30.0,33.0,' ',color(0,0,225));
-  gates[6] =new Location(1185.0,760.0,-30.0,-31.0,' ',color(0,0,225));
-  gates[7] = new Location(1162.0,418.0,21.0,34.0,' ',color(125,0,125));
 
+  gates = new Location[8];
+  gates[0] = new Location(14.0,108.0,18.0,36.0,' ',color(0,0,225));
+  gates[1] = new Location(120.0,14.0,29.0,17.0,' ',color(0,0,225));
+  gates[2] = new Location(460.0,31.0,-31.0,-16.0,' ',color(0,0,225));
+  gates[3] = new Location(737.0,12.0,32.0,20.0,' ',color(0,0,225));
+  gates[4] = new Location(1046.0,10.0,33.0,22.0,' ',color(0,0,225));
+  gates[5] = new Location(15.0,756.0,17.0,-28.0,' ',color(0,0,225));
+  gates[6] =new Location(1166.0,728.0,20.0,31.0,' ',color(0,0,225));
+  gates[7] = new Location(1166.0,417.0,18.0,35.0,' ',color(125,0,125));
 
 
 
@@ -82,12 +82,14 @@ class Screen{
 
  
  void display(){
-  for(int x = 0; x < elements.length;x++){
+   for(int x = 0; x < elements.length;x++){
     elements[x].display();
   }
- for(int x = 0; x < gates.length;x++){
+
+  for(int x = 0; x < gates.length;x++){
     gates[x].display();
   } 
+
 }
  
  void coolDisplay(){
