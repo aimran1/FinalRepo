@@ -18,7 +18,8 @@ class Location{
   }
   
   void display(){
-    fill(c);
+   fill(c);
+   stroke(c);
    rect(x,y,w,h); 
   }
 }
