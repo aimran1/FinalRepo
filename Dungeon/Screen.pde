@@ -5,7 +5,7 @@ class Screen{
  Enemy[] enemies;
  ArrayList<Enemy> LivingBad;
  Screen(boolean f){ 
-  elements = new Location[32];
+  elements = new Location[38];
   
   elements[0] = new Location(483.0,88.0,230.0,78.0,' ',0);
   elements[1] = new Location(394.0,223.0,98.0,154.0,' ',0);
@@ -44,6 +44,8 @@ class Screen{
   elements[34] = new Location(1193.0,865.0,-573.0,-28.0,' ',0);
   elements[35] = new Location(1166.0,32.0,27.0,833.0,' ',0);
   elements[36] = new Location(3.0,6.0,1163.0,25.0,' ',0);
+  elements[37] = new Location(621.0,839.0,238.0,-7.0,' ',0);
+
 
 
 
