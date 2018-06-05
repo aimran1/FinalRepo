@@ -47,7 +47,7 @@ public void mouseClicked(){
   System.out.println("click!");
  if(clickO){
   System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ')"); 
-  tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',255));
+  tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',0));
   clickO = false;
  }
  else{
