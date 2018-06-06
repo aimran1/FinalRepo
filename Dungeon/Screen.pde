@@ -62,7 +62,7 @@ class Screen{
 
   enemies=new Enemy[2];
   enemies[0] = new Enemy();
-  enemies[1] = new Enemy(12,17,"hinox-sprite.png");
+  enemies[1] = new Enemy(35,35,"hinox-sprite.png");
   LivingBad = new ArrayList<Enemy>();
   for(int x = 0; x < enemies.length; x++){
     LivingBad.add(enemies[x]);

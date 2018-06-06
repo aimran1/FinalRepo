@@ -1,4 +1,4 @@
-class Enemy extends Attack implements Attackable{
+class Enemy extends Attack{
   float x,y,vx,vy;
   int steps;
   boolean turn;

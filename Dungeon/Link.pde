@@ -20,8 +20,8 @@ class Link{
   final int down = 3;
   
   Link(){
-   x = width/2-width/2%5;
-   y = height/2-width/2%5;
+   x = 590;
+   y = 830;
    StandDown = loadImage("StandingLink.png");
    StandRight = loadImage("StandingRight.png");
    StandUp = loadImage("StandingUp.png");
@@ -167,7 +167,7 @@ class Link{
   void attack(){
     attackFrame = 0;
     if(facing == down){
-      currentAttack = attackDown;
+      currentAttack = attackDown;      
     }
   }
   
