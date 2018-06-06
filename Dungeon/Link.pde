@@ -27,6 +27,7 @@ class Link{
    StandUp = loadImage("StandingUp.png");
    StandLeft = loadImage("StandingLeft.png");
    current = StandDown;
+   facing = down;
    facings = new PImage[4];
    facings[left] = StandLeft;
    facings[right] = StandRight;
@@ -106,7 +107,7 @@ class Link{
        println(""+attackFrame); 
       }
       attackFrame++;
-      if(attackFrame >= 14){
+      if(attackFrame > 14){
         attackFrame = -1;
         current = facings[facing];
       }
