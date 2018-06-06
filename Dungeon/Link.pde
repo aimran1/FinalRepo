@@ -8,7 +8,11 @@ class Link{
   PImage StandRight;
   PImage StandUp;
   PImage StandLeft;
-  int hp,invincibleTime;
+  int hp,invincibleTime, attackFrame;
+  PImage[] currentAttack;
+  PImage[] attackDown;
+  PImage[] facings;
+  
   int facing;
   final int right = 0;
   final int up = 1;
@@ -23,7 +27,25 @@ class Link{
    StandUp = loadImage("StandingUp.png");
    StandLeft = loadImage("StandingLeft.png");
    current = StandDown;
+   facings = new PImage[4];
+   facings[left] = StandLeft;
+   facings[right] = StandRight;
+   facings[up] = StandUp;
+   facings[down] = StandDown;
    hp = 40;
+   attackFrame = -1;
+   ArrayList<String> loadAttack = new ArrayList(4);
+   loadAttack.add("attackDown");
+   for(String directory:loadAttack){
+     PImage[] loading = attackDown;
+     if(directory == "attackDown"){
+       attackDown = new PImage[7];
+       loading = attackDown;
+     }
+     for(int x = 0; x < 7; x++){
+       loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
+     }
+   }
   }
   
   void moveInput(char f){
@@ -47,6 +69,9 @@ class Link{
       current = StandDown;
       facing = down;
     }
+    if(f == 'j'){
+      attack();
+    }
   }
   
   void unInput(char f){
@@ -62,6 +87,7 @@ class Link{
     if(f == 's' && vy == 5){
       vy = 0;
     }
+    
   }
   
   boolean walkableX(){
@@ -73,6 +99,19 @@ class Link{
   }
   
   void update(){
+    if(attackFrame>=0){
+      try{
+      current = currentAttack[attackFrame/2];
+      }catch(Exception e){
+       println(""+attackFrame); 
+      }
+      attackFrame++;
+      if(attackFrame >= 14){
+        attackFrame = -1;
+        current = facings[facing];
+      }
+    }
+    else{
     if(walkableX()){
       x+=vx;
     }
@@ -80,6 +119,7 @@ class Link{
     y+=vy;
     }
     invincibleTime--;
+    }
   }
   
   //trying to go dirctly against wall
@@ -120,8 +160,15 @@ class Link{
   }
   
   void display(){
-    //rect(x,y,Dwidth,Dheight);
+    rect(x,y,Dwidth,Dheight);
    image(current,x,y); 
+  }
+  
+  void attack(){
+    attackFrame = 0;
+    if(facing == down){
+      currentAttack = attackDown;
+    }
   }
   
 }
