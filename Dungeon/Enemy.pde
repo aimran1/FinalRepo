@@ -16,7 +16,7 @@ class Enemy extends Attack{
    vx = 1;
    vy = 0;
   // myPoa = new PVector(getX(), getY());
-   speed = 3;
+   speed = 1;
    steps = 0;
    turn = false;
    hp = 20;
@@ -30,7 +30,7 @@ class Enemy extends Attack{
    vx = 1;
    vy = 0;
   // myPoa = new PVector(getX(), getY());
-   speed = 3;
+   speed = 1;
    steps = 0;
    turn = false;
    hp = 20;
@@ -137,4 +137,6 @@ class Enemy extends Attack{
   boolean walkableY(){
     return get((int)(x),(int)(y+vy))!=color(0) && get((int)(x+Dwidth),(int)(y+vy))!=color(0) && get((int)(x),(int)(y+Dheight+vy))!=color(0) && get((int)(x+Dwidth),(int)(y+Dheight+vy))!=color(0);
   }
+  
+  
 }

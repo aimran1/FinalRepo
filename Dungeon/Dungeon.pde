@@ -27,7 +27,7 @@ public void draw() {
   
   s.update(Player);
   Player.update();
- // image(s.map(),0,0);
+  image(s.map(),0,0);
   Player.display();
 
   s.coolDisplay();
@@ -38,6 +38,15 @@ public void keyPressed(){
  Player.moveInput(key); 
  if(key == TAB){
    tests.remove(tests.size()-1);
+ }
+ if (key == 'j'){
+   Player.attack();
+   for(Enemy e:s.enemies){
+     if (dist(Player.getX(),Player.getY(),e.getX(),e.getY())<= 10 && 
+       e.getY() < Player.getY()){
+       e.hurt(4);
+     }
+   }
  }
 }
 

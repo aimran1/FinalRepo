@@ -177,8 +177,7 @@ class Link{
   void attack(){
     attackFrame = 0;
     if(facing == down){
-      currentAttack = attackDown;  
-      
+      currentAttack = attackDown; 
     }
   }
   
