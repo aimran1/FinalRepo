@@ -38,7 +38,7 @@ class Enemy extends Attack{
   
   void update(Link fg){
     if (hp == 0){
-      current = loadImage("tombstone.PNG");
+      current = loadImage("tombstone.png");
       return; 
     }
     target = new PVector(fg.getX()-getX(), fg.getY()- getY());
