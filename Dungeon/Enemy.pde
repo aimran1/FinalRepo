@@ -1,4 +1,4 @@
-class Enemy extends Attack{
+class Enemy extends Attack implements Attackable{
   float x,y,vx,vy;
   int steps;
   boolean turn;
@@ -22,7 +22,6 @@ class Enemy extends Attack{
    hp = 20;
   }
   
-  
   Enemy(float X, float Y, String Image){
    x = X;
    y = Y;
@@ -38,6 +37,10 @@ class Enemy extends Attack{
   }
   
   void update(Link fg){
+    if (hp == 0){
+      current = loadImage("tombstone.PNG");
+      return; 
+    }
     target = new PVector(fg.getX()-getX(), fg.getY()- getY());
     
       float temp = vx;
