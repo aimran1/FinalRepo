@@ -11,7 +11,6 @@ class Link{
   int hp,invincibleTime, attackFrame;
   PImage[] currentAttack;
   PImage[] attackDown;
-  PImage[] metaattackDown;
   PImage[] facings;
   
   int facing;
@@ -21,8 +20,8 @@ class Link{
   final int down = 3;
   
   Link(){
-   x = 590;
-   y = 830;
+   x = width/2-width/2%5;
+   y = height/2-width/2%5;
    StandDown = loadImage("StandingLink.png");
    StandRight = loadImage("StandingRight.png");
    StandUp = loadImage("StandingUp.png");
@@ -48,8 +47,6 @@ class Link{
        loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
      }
    }
-   
-   
   }
   
   void moveInput(char f){
@@ -126,20 +123,6 @@ class Link{
     }
   }
   
-  //trying to go dirctly against wall
-    void update2(){
-      float vxe = vx;
-      float vye = vy;
-    while(vxe >= 0 && get((int)(x+vxe),(int)(y))!=color(255) && get((int)(x+Dwidth+vxe),(int)(y))!=color(255) && get((int)(x+vxe),(int)(y+Dheight))!=color(255) && get((int)(x+Dwidth+vxe),(int)(y+Dheight))!=color(255)){
-      vxe-=vxe%5;
-    }
-    x+=vxe;
-    while(vye >= 0 && get((int)(x),(int)(y+vye))!=color(255) && get((int)(x+Dwidth),(int)(y+vye))!=color(255) && get((int)(x),(int)(y+Dheight+vye))!=color(255) && get((int)(x+Dwidth),(int)(y+Dheight+vye))!=color(255)){
-      vye-=vye%5;
-    }
-    y+=vye;
-  }
-  
   float getX(){
     return x;
   }
@@ -165,20 +148,22 @@ class Link{
   
   void display(){
     //rect(x,y,Dwidth,Dheight);
-    if(attackFrame >= 0){
-      if(facing == down)
-      image(current,x-3,y);
-    }
+    if(attackFrame>=0 && attackFrame<14){
+     //if(facing == down){
+     image(current, x-6,y);
+     //}
+  }
     else{
    image(current,x,y); 
     }
   }
   
   void attack(){
+    if(attackFrame == -1){
     attackFrame = 0;
     if(facing == down){
-      currentAttack = attackDown;  
-      
+      currentAttack = attackDown;
+    }
     }
   }
   
