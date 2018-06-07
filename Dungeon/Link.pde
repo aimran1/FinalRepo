@@ -10,8 +10,9 @@ class Link{
   PImage StandLeft;
   int hp,invincibleTime, attackFrame;
   PImage[] currentAttack;
+  PImage[] currentMeta;
   PImage[] attackDown;
-  PImage[] metaattackDown;
+  PImage[] attackDownMeta;
   PImage[] facings;
   
   int facing;
@@ -50,6 +51,18 @@ class Link{
    }
    
    
+   ArrayList<String> loadMeta = new ArrayList(4);
+   loadMeta.add("attackDownMeta");
+   for(String directory:loadMeta){
+     PImage[] loading = attackDownMeta;
+     if(directory == "attackDownMeta"){
+       attackDownMeta = new PImage[7];
+       loading = attackDownMeta;
+     }
+     for(int x = 0; x < 7; x++){
+       loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
+     }
+   }
   }
   
   void moveInput(char f){
@@ -165,13 +178,13 @@ class Link{
   
   void display(){
     //rect(x,y,Dwidth,Dheight);
-    if(attackFrame >= 0){
-      if(facing == down)
-      image(current,x-3,y);
-    }
-    else{
+    //if(attackFrame >= 0){
+    //  if(facing == down)
+    //  image(current,x-3,y);
+    //}
+    //else{
    image(current,x,y); 
-    }
+    //}
   }
   
   void attack(){
