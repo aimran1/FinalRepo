@@ -14,6 +14,10 @@ class Link{
   PImage[] attackDown;
   PImage[] attackDownMeta;
   PImage[] attackUp;
+  PImage[] attackUpMeta;
+  PImage[] attackLeft;
+  PImage[] attackLeftMeta;
+  
   PImage[] facings;
   
   int facing;
@@ -41,6 +45,7 @@ class Link{
    ArrayList<String> loadAttack = new ArrayList(4);
    loadAttack.add("attackDown");
    loadAttack.add("attackUp");
+   loadAttack.add("attackLeft");
    for(String directory:loadAttack){
      PImage[] loading = attackDown;
      if(directory == "attackDown"){
@@ -51,6 +56,10 @@ class Link{
        attackUp = new PImage[7];
        loading = attackUp;
      }
+     if(directory == "attackLeft"){
+       attackLeft = new PImage[7];
+       loading = attackLeft;
+     }
      for(int x = 0; x < 7; x++){
        loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
      }
@@ -59,11 +68,20 @@ class Link{
    
    ArrayList<String> loadMeta = new ArrayList(4);
    loadMeta.add("attackDownMeta");
+   loadMeta.add("attackUpMeta");
    for(String directory:loadMeta){
      PImage[] loading = attackDownMeta;
      if(directory == "attackDownMeta"){
        attackDownMeta = new PImage[7];
        loading = attackDownMeta;
+     }
+     if(directory == "attackUpMeta"){
+       attackUpMeta = new PImage[7];
+       loading = attackUpMeta;
+     }
+     if(directory == "attackLeftMeta"){
+       attackLeftMeta = new PImage[7];
+       loading = attackLeftMeta;
      }
      for(int x = 0; x < 7; x++){
        loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
@@ -191,26 +209,15 @@ class Link{
       
       else if(facing == up){
         imageMode(CORNERS);
-        image(current,Dwidth+x,Dheight+y,x+Dwidth-current.width, y+Dwidth-current.height);
-        /*
-        if(attackFrame/2 == 1){
-          image(current,x,y-8);
-        }
-        else if(attackFrame/2 == 2){
-          image(current,x,y-13);
-        }
-        else if(attackFrame/2 == 3){
-          image(current,x-4,y-8);
-        }
-        else if(attackFrame/2 == 5||attackFrame/2 == 4){
-          image(current,x-12,y-2);
-        }
-        else if(attackFrame/2 == 6){
-          image(current,x,y-4);
-        }
-        */
+        image(current,getRightX(),getLowY(),getRightX()-current.width, getLowY()-current.height);
       }
-      
+      else if(facing == left){
+       imageMode(CORNERS);
+       image(current,getRightX(),getY(),getRightX()-current.width,getY()+current.height);
+      }
+      else{
+   image(current,x,y); 
+    }
     }
     
     
@@ -220,12 +227,20 @@ class Link{
   }
   
   void attack(){
+    if(attackFrame == -1){
     attackFrame = 0;
     if(facing == down){
       currentAttack = attackDown; 
+      currentMeta = attackDownMeta;
     }
     if(facing == up){
       currentAttack = attackUp;
+      currentMeta = attackUpMeta;
+    }
+    if(facing == left){
+      currentAttack = attackLeft;
+      currentMeta = attackLeftMeta;
+    }
     }
   }
   
