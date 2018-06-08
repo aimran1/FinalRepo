@@ -21,6 +21,7 @@ class Room1 extends Screen{
       LivingBad.remove(x);
     }
   }*/
+     background(0);
 }
 
  
@@ -42,6 +43,6 @@ class Room1 extends Screen{
  }
  
  PImage map(){
-   return screen1;
+   return (screen1);
  }
 }

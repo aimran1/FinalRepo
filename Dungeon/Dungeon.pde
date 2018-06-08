@@ -9,6 +9,7 @@ ArrayList<Location> tests;
 Attack continuous;
 public void setup() {
   size(1200, 873);
+  imageMode(CENTER);
   Player = new Link();
   s = new Screen();
   
@@ -24,7 +25,8 @@ public void draw() {
     
   if (get((int)Player.x,(int)Player.y) == gates){
      s = new Room1();
-     println(true);
+     Player.x = width/2;
+     Player.y = height/2;
   }
   //test code
   for(Location jerr: tests){
@@ -34,7 +36,7 @@ public void draw() {
   
   s.update(Player);
   Player.update();
-  image(s.map(),0,0);
+  image(s.map(),(width-s.map().width)/2,(height/-s.map().height)/2);
   Player.display();
 
   s.coolDisplay();
@@ -79,7 +81,7 @@ public void keyReleased(){
 }
 
 public void mouseClicked(){
-  System.out.println(mouseX + " " + mouseY);
+ /* System.out.println(mouseX + " " + mouseY);
  if(clickO){
   System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ')"); 
   tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',0));
@@ -90,5 +92,6 @@ public void mouseClicked(){
   param1[0] = mouseX;
   param1[1] = mouseY;
   clickO=true;
- }
+ }*/
+ s = new Screen();
 }
