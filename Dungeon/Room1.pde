@@ -11,6 +11,7 @@ class Room1 extends Screen{
   gates = new Location[8];
 
   screen1 = loadImage("room1.PNG");
+    
  }
  
 
@@ -33,6 +34,7 @@ class Room1 extends Screen{
   //for(int x = 0; x < gates.length;x++){
   //  gates[x].display();
  // } 
+    text("Coming soon! /n (Click to Escape)",width/2,height/2); 
 
 }
  

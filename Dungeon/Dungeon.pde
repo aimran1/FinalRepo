@@ -38,7 +38,7 @@ public void draw() {
   
   s.update(Player);
   Player.update();
-  image(s.map(),(width-s.map().width)/2,(height/-s.map().height)/2);
+//  image(s.map(),(width-s.map().width)/2,(height/-s.map().height)/2);
   Player.display();
 
   s.coolDisplay();
@@ -84,4 +84,5 @@ public void mouseClicked(){
   clickO=true;
  }*/
  s = new Screen();
+ Player = new Link();
 }
