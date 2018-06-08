@@ -22,7 +22,8 @@ class Room1 extends Screen{
       LivingBad.remove(x);
     }
   }*/
-     background(0);
+      text("Coming soon! \n (Press 'Tab'to Escape)",width/2,height/2); 
+
 }
 
  
@@ -34,7 +35,6 @@ class Room1 extends Screen{
   //for(int x = 0; x < gates.length;x++){
   //  gates[x].display();
  // } 
-    text("Coming soon! /n (Click to Escape)",width/2,height/2); 
 
 }
  

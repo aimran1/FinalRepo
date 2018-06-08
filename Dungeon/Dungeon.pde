@@ -38,7 +38,7 @@ public void draw() {
   
   s.update(Player);
   Player.update();
-//  image(s.map(),(width-s.map().width)/2,(height/-s.map().height)/2);
+  image(s.map(),(width-s.map().width)/2,(height/-s.map().height));
   Player.display();
 
   s.coolDisplay();
@@ -49,7 +49,8 @@ public void draw() {
 public void keyPressed(){
  Player.moveInput(key); 
  if(key == TAB){
-   tests.remove(tests.size()-1);
+ s = new Screen();
+ Player = new Link();
  }
  /*
  if (key == 'j'){
@@ -83,6 +84,5 @@ public void mouseClicked(){
   param1[1] = mouseY;
   clickO=true;
  }*/
- s = new Screen();
- Player = new Link();
+ 
 }
