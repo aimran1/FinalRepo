@@ -114,18 +114,39 @@ class Enemy extends Attack{
    image(current,x,y); 
   }
   
+  void hurt(int dam, Link s){
+    if(invincibleFrame <=0){
+    hp-=dam;
+    invincibleFrame = 14;
+    if(s.facing == s.up){
+      y-=dam*3;
+    }
+    if(s.facing == s.down){
+      y+=dam*3;
+    }
+    if(s.facing == s.left){
+      x-=dam*3;
+    }
+    if(s.facing == s.right){
+      x+=dam*3;
+    }
+    }
+  }
+  
+  
   void hurt(int dam){
     if(invincibleFrame <=0){
     hp-=dam;
     invincibleFrame = 14;
+    
     }
   }
   
-  void pain(){
+  void pain(Link s){
     for(int X = 0; X < x+Dwidth; X++){
       for(int Y = 0; Y < y+Dheight; Y++){
         if(get(X,Y) == color(127,127,127)){
-          hurt(4);
+          hurt(4,s);
         }
       }
     }

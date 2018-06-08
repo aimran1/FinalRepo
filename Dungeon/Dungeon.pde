@@ -17,7 +17,7 @@ public void setup() {
 public void draw() {
   background(255);
   Player.metaDisplay();
-  s.pain();
+  s.pain(Player);
   fill(0);
   s.display();
   

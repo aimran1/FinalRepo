@@ -81,9 +81,9 @@ class Screen {
     }
   }
 
-  void pain(){
+  void pain(Link s){
     for(Enemy j : LivingBad){
-      j.pain();
+      j.pain(s);
     }
   }
 
