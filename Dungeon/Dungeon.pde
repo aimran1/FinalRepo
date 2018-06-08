@@ -49,16 +49,16 @@ public void keyPressed(){
           Player.getFacing() == 0 && e.getX() >= Player.getX()){
          e.hurt(4);
          if (Player.getFacing() == 3){
-            e.y -= 5; 
+            e.y -= 10; 
          }
          if (Player.getFacing() == 2){
-            e.x -= 5; 
+            e.x -= 10; 
          }
          if (Player.getFacing() == 1){
-            e.y += 5; 
+            e.y += 10; 
          }
          if (Player.getFacing() == 0){
-            e.x += 5; 
+            e.x += 10; 
          }
        }
      }
