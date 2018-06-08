@@ -4,6 +4,7 @@ class Link{
   float Dwidth = 16;
   float Dheight = 22;
   PImage current;
+  PImage currentMetaFrame;
   PImage StandDown;
   PImage StandRight;
   PImage StandUp;
@@ -140,7 +141,6 @@ class Link{
     if(f == 's' && vy == 5){
       vy = 0;
     }
-    
   }
   
   boolean walkableX(){
@@ -155,6 +155,7 @@ class Link{
     if(attackFrame>=0){
       try{
       current = currentAttack[attackFrame/2];
+      currentMetaFrame = currentMeta[attackFrame/2];
       }catch(Exception e){
        println(e); 
       }
@@ -173,20 +174,6 @@ class Link{
     }
     invincibleTime--;
     }
-  }
-  
-  //trying to go dirctly against wall
-    void update2(){
-      float vxe = vx;
-      float vye = vy;
-    while(vxe >= 0 && get((int)(x+vxe),(int)(y))!=color(255) && get((int)(x+Dwidth+vxe),(int)(y))!=color(255) && get((int)(x+vxe),(int)(y+Dheight))!=color(255) && get((int)(x+Dwidth+vxe),(int)(y+Dheight))!=color(255)){
-      vxe-=vxe%5;
-    }
-    x+=vxe;
-    while(vye >= 0 && get((int)(x),(int)(y+vye))!=color(255) && get((int)(x+Dwidth),(int)(y+vye))!=color(255) && get((int)(x),(int)(y+Dheight+vye))!=color(255) && get((int)(x+Dwidth),(int)(y+Dheight+vye))!=color(255)){
-      vye-=vye%5;
-    }
-    y+=vye;
   }
   
   float getX(){
@@ -260,5 +247,25 @@ class Link{
     }
   }
   
- 
+  void metaDisplay(){
+    try{
+    imageMode(CORNER);
+    if(attackFrame >= 0){
+      if(facing == down||facing == right)
+      image(currentMetaFrame,x,y);
+      
+      else if(facing == up){
+        imageMode(CORNERS);
+        image(currentMetaFrame,getRightX(),getLowY(),getRightX()-current.width, getLowY()-current.height);
+      }
+      else if(facing == left){
+       imageMode(CORNERS);
+       image(currentMetaFrame,getRightX(),getY(),getRightX()-current.width,getY()+current.height);
+      }
+  }
+  }
+  catch(NullPointerException e){
+    println(attackFrame);
+  }
+  }
 }

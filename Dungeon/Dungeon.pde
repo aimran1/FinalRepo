@@ -16,6 +16,8 @@ public void setup() {
 }
 public void draw() {
   background(255);
+  Player.metaDisplay();
+  s.pain();
   fill(0);
   s.display();
   
@@ -39,8 +41,11 @@ public void keyPressed(){
  if(key == TAB){
    tests.remove(tests.size()-1);
  }
+ /*
  if (key == 'j'){
+   
    Player.attack();
+   
    for(Enemy e:s.enemies){
      if (dist(Player.getX(),Player.getY(),e.getX(),e.getY())<= 10 && 
        e.getY() < Player.getY()){
@@ -48,6 +53,7 @@ public void keyPressed(){
      }
    }
  }
+ */
 }
 
 public void keyReleased(){

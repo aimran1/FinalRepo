@@ -7,7 +7,7 @@ class Enemy extends Attack{
   float speed, angle;
   PImage current;
   PVector myPos, target, player;
-  int hp;
+  int hp,invincibleFrame;
   Enemy(){
    x = width/2;
    y = height/2;
@@ -89,7 +89,9 @@ class Enemy extends Attack{
       } 
     }
     playerCollision(fg);
-    
+    if(invincibleFrame > 0){
+      invincibleFrame--;
+    }
   }
   
   float getX(){
@@ -113,7 +115,20 @@ class Enemy extends Attack{
   }
   
   void hurt(int dam){
+    if(invincibleFrame <=0){
     hp-=dam;
+    invincibleFrame = 14;
+    }
+  }
+  
+  void pain(){
+    for(int X = 0; X < x+Dwidth; X++){
+      for(int Y = 0; Y < y+Dheight; Y++){
+        if(get(X,Y) == color(127,127,127)){
+          hurt(4);
+        }
+      }
+    }
   }
   
   int getHP(){
