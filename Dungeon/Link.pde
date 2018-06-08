@@ -17,7 +17,8 @@ class Link{
   PImage[] attackUpMeta;
   PImage[] attackLeft;
   PImage[] attackLeftMeta;
-  
+  PImage[] attackRight;
+  PImage[] attackRightMeta;
   PImage[] facings;
   
   int facing;
@@ -46,6 +47,7 @@ class Link{
    loadAttack.add("attackDown");
    loadAttack.add("attackUp");
    loadAttack.add("attackLeft");
+   loadAttack.add("attackRight");
    for(String directory:loadAttack){
      PImage[] loading = attackDown;
      if(directory == "attackDown"){
@@ -60,6 +62,10 @@ class Link{
        attackLeft = new PImage[7];
        loading = attackLeft;
      }
+     if(directory == "attackRight"){
+       attackRight = new PImage[7];
+       loading = attackRight;
+     }
      for(int x = 0; x < 7; x++){
        loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
      }
@@ -69,6 +75,8 @@ class Link{
    ArrayList<String> loadMeta = new ArrayList(4);
    loadMeta.add("attackDownMeta");
    loadMeta.add("attackUpMeta");
+   loadMeta.add("attackLeftMeta");
+   loadMeta.add("attackRightMeta");
    for(String directory:loadMeta){
      PImage[] loading = attackDownMeta;
      if(directory == "attackDownMeta"){
@@ -82,6 +90,10 @@ class Link{
      if(directory == "attackLeftMeta"){
        attackLeftMeta = new PImage[7];
        loading = attackLeftMeta;
+     }
+     if(directory == "attackRightMeta"){
+       attackRightMeta = new PImage[7];
+       loading = attackRightMeta;
      }
      for(int x = 0; x < 7; x++){
        loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
@@ -144,7 +156,7 @@ class Link{
       try{
       current = currentAttack[attackFrame/2];
       }catch(Exception e){
-       println(""+attackFrame); 
+       println(e); 
       }
       attackFrame++;
       if(attackFrame >= 14){
@@ -240,6 +252,10 @@ class Link{
     if(facing == left){
       currentAttack = attackLeft;
       currentMeta = attackLeftMeta;
+    }
+    if(facing == right){
+      currentAttack = attackRight;
+      currentMeta = attackRightMeta;
     }
     }
   }
