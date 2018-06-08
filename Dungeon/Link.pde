@@ -10,8 +10,15 @@ class Link{
   PImage StandLeft;
   int hp,invincibleTime, attackFrame;
   PImage[] currentAttack;
+  PImage[] currentMeta;
   PImage[] attackDown;
-  PImage[] metaattackDown;
+  PImage[] attackDownMeta;
+  PImage[] attackUp;
+  PImage[] attackUpMeta;
+  PImage[] attackLeft;
+  PImage[] attackLeftMeta;
+  PImage[] attackRight;
+  PImage[] attackRightMeta;
   PImage[] facings;
   
   int facing;
@@ -38,11 +45,26 @@ class Link{
    attackFrame = -1;
    ArrayList<String> loadAttack = new ArrayList(4);
    loadAttack.add("attackDown");
+   loadAttack.add("attackUp");
+   loadAttack.add("attackLeft");
+   loadAttack.add("attackRight");
    for(String directory:loadAttack){
      PImage[] loading = attackDown;
      if(directory == "attackDown"){
        attackDown = new PImage[7];
        loading = attackDown;
+     }
+     if(directory == "attackUp"){
+       attackUp = new PImage[7];
+       loading = attackUp;
+     }
+     if(directory == "attackLeft"){
+       attackLeft = new PImage[7];
+       loading = attackLeft;
+     }
+     if(directory == "attackRight"){
+       attackRight = new PImage[7];
+       loading = attackRight;
      }
      for(int x = 0; x < 7; x++){
        loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
@@ -50,6 +72,33 @@ class Link{
    }
    
    
+   ArrayList<String> loadMeta = new ArrayList(4);
+   loadMeta.add("attackDownMeta");
+   loadMeta.add("attackUpMeta");
+   loadMeta.add("attackLeftMeta");
+   loadMeta.add("attackRightMeta");
+   for(String directory:loadMeta){
+     PImage[] loading = attackDownMeta;
+     if(directory == "attackDownMeta"){
+       attackDownMeta = new PImage[7];
+       loading = attackDownMeta;
+     }
+     if(directory == "attackUpMeta"){
+       attackUpMeta = new PImage[7];
+       loading = attackUpMeta;
+     }
+     if(directory == "attackLeftMeta"){
+       attackLeftMeta = new PImage[7];
+       loading = attackLeftMeta;
+     }
+     if(directory == "attackRightMeta"){
+       attackRightMeta = new PImage[7];
+       loading = attackRightMeta;
+     }
+     for(int x = 0; x < 7; x++){
+       loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
+     }
+   }
   }
   
   void moveInput(char f){
@@ -107,7 +156,7 @@ class Link{
       try{
       current = currentAttack[attackFrame/2];
       }catch(Exception e){
-       println(""+attackFrame); 
+       println(e); 
       }
       attackFrame++;
       if(attackFrame >= 14){
@@ -165,24 +214,53 @@ class Link{
   
   void display(){
     //rect(x,y,Dwidth,Dheight);
+    imageMode(CORNER);
     if(attackFrame >= 0){
       if(facing == down)
-      image(current,x-3,y);
+      image(current,x,y);
+      
+      else if(facing == up){
+        imageMode(CORNERS);
+        image(current,getRightX(),getLowY(),getRightX()-current.width, getLowY()-current.height);
+      }
+      else if(facing == left){
+       imageMode(CORNERS);
+       image(current,getRightX(),getY(),getRightX()-current.width,getY()+current.height);
+      }
+      else{
+   image(current,x,y); 
     }
+    }
+    
+    
     else{
    image(current,x,y); 
     }
   }
   
   void attack(){
+    if(attackFrame == -1){
     attackFrame = 0;
     if(facing == down){
       currentAttack = attackDown; 
+      currentMeta = attackDownMeta;
+    }
+    if(facing == up){
+      currentAttack = attackUp;
+      currentMeta = attackUpMeta;
+    }
+    if(facing == left){
+      currentAttack = attackLeft;
+      currentMeta = attackLeftMeta;
+    }
+    if(facing == right){
+      currentAttack = attackRight;
+      currentMeta = attackRightMeta;
+    }
     }
   }
   
   int getFacing(){
     return facing;
   }
-  
 }
