@@ -80,9 +80,6 @@ class Enemy extends Attack{
         y += vy;
         steps += 1;
       }
-   /*   if (!walkableX() && !walkableY()){
-        steps = 200;
-      }*/
       if (steps == 200){
         steps = 0;
         turn = !turn; 
@@ -138,6 +135,5 @@ class Enemy extends Attack{
   boolean walkableY(){
     return get((int)(x),(int)(y+vy))!=color(0) && get((int)(x+Dwidth),(int)(y+vy))!=color(0) && get((int)(x),(int)(y+Dheight+vy))!=color(0) && get((int)(x+Dwidth),(int)(y+Dheight+vy))!=color(0);
   }
-  
   
 }
