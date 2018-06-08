@@ -61,9 +61,13 @@ class Screen {
 
 
 
-    enemies=new Enemy[2];
+    enemies=new Enemy[5];
     enemies[0] = new Enemy();
-    enemies[1] = new Enemy(35, 35, "hinox-sprite.png");
+    enemies[1] = new Enemy(width/2-70, height/2-110, "hinox-sprite.png");
+    enemies[2] = new Enemy(180, 55, "hinox-sprite.png");
+    enemies[3] = new Enemy(width-100,height-100, "hinox-sprite.png");
+    enemies[4] = new Enemy(100, 730, "hinox-sprite.png");
+
     LivingBad = new ArrayList<Enemy>();
     for (int x = 0; x < enemies.length; x++) {
       LivingBad.add(enemies[x]);

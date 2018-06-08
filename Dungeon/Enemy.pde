@@ -13,10 +13,10 @@ class Enemy extends Attack{
    y = height/2;
    current = loadImage("hinox-sprite.png");
    current.resize(20,25);
-   vx = 1;
+   vx = 2;
    vy = 0;
   // myPoa = new PVector(getX(), getY());
-   speed = 1;
+   speed = 2.5;
    steps = 0;
    turn = false;
    hp = 20;
@@ -27,7 +27,7 @@ class Enemy extends Attack{
    y = Y;
    current = loadImage(Image);
    current.resize(20,25);
-   vx = 1;
+   vx = 2;
    vy = 0;
   // myPoa = new PVector(getX(), getY());
    speed = 1;
@@ -83,7 +83,7 @@ class Enemy extends Attack{
    /*   if (!walkableX() && !walkableY()){
         steps = 200;
       }*/
-      if (steps == 200){
+      if (steps == 100){
         steps = 0;
         turn = !turn; 
       } 
