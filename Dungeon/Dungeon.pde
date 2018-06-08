@@ -3,13 +3,14 @@ Screen s;
 Screen[] rooms;
 int currentScreen;
 boolean clickO;
+color gates = color(0,0,225);
 float[] param1;
 ArrayList<Location> tests;
 Attack continuous;
 public void setup() {
   size(1200, 873);
   Player = new Link();
-  s = new Screen(false);
+  s = new Screen();
   
   //test code
   tests = new ArrayList();
@@ -17,8 +18,14 @@ public void setup() {
 public void draw() {
   background(255);
   fill(0);
-  s.display();
+
   
+  s.display();
+    
+  if (get((int)Player.x,(int)Player.y) == gates){
+     s = new Room1();
+     println(true);
+  }
   //test code
   for(Location jerr: tests){
     jerr.display();
@@ -32,6 +39,7 @@ public void draw() {
 
   s.coolDisplay();
   text(Player.hp, 100, 100);
+
 }
 
 public void keyPressed(){

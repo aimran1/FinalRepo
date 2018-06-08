@@ -231,8 +231,6 @@ class Link{
    image(current,x,y); 
     }
     }
-    
-    
     else{
    image(current,x,y); 
     }

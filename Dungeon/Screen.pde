@@ -5,7 +5,7 @@ class Screen{
  Location[] gates;
  Enemy[] enemies;
  ArrayList<Enemy> LivingBad;
- Screen(boolean f){ 
+ Screen(){ 
   elements = new Location[38];
   elements[0] = new Location(483.0,88.0,230.0,78.0,' ',0);
   elements[1] = new Location(394.0,223.0,98.0,154.0,' ',0);
