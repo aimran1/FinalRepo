@@ -181,4 +181,8 @@ class Link{
     }
   }
   
+  int getFacing(){
+    return facing;
+  }
+  
 }
