@@ -13,6 +13,7 @@ class Link{
   PImage[] currentMeta;
   PImage[] attackDown;
   PImage[] attackDownMeta;
+  PImage[] attackUp;
   PImage[] facings;
   
   int facing;
@@ -39,11 +40,16 @@ class Link{
    attackFrame = -1;
    ArrayList<String> loadAttack = new ArrayList(4);
    loadAttack.add("attackDown");
+   loadAttack.add("attackUp");
    for(String directory:loadAttack){
      PImage[] loading = attackDown;
      if(directory == "attackDown"){
        attackDown = new PImage[7];
        loading = attackDown;
+     }
+     if(directory == "attackUp"){
+       attackUp = new PImage[7];
+       loading = attackUp;
      }
      for(int x = 0; x < 7; x++){
        loading[x] = loadImage("SwordAnimation/"+directory+"/"+x+".png");
@@ -178,13 +184,39 @@ class Link{
   
   void display(){
     //rect(x,y,Dwidth,Dheight);
-    //if(attackFrame >= 0){
-    //  if(facing == down)
-    //  image(current,x-3,y);
-    //}
-    //else{
+    imageMode(CORNER);
+    if(attackFrame >= 0){
+      if(facing == down)
+      image(current,x,y);
+      
+      else if(facing == up){
+        imageMode(CORNERS);
+        image(current,Dwidth+x,Dheight+y,x+Dwidth-current.width, y+Dwidth-current.height);
+        /*
+        if(attackFrame/2 == 1){
+          image(current,x,y-8);
+        }
+        else if(attackFrame/2 == 2){
+          image(current,x,y-13);
+        }
+        else if(attackFrame/2 == 3){
+          image(current,x-4,y-8);
+        }
+        else if(attackFrame/2 == 5||attackFrame/2 == 4){
+          image(current,x-12,y-2);
+        }
+        else if(attackFrame/2 == 6){
+          image(current,x,y-4);
+        }
+        */
+      }
+      
+    }
+    
+    
+    else{
    image(current,x,y); 
-    //}
+    }
   }
   
   void attack(){
@@ -192,6 +224,10 @@ class Link{
     if(facing == down){
       currentAttack = attackDown; 
     }
+    if(facing == up){
+      currentAttack = attackUp;
+    }
   }
   
+ 
 }
