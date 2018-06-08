@@ -42,7 +42,6 @@ class Enemy extends Attack{
       return; 
     }
     target = new PVector(fg.getX()-getX(), fg.getY()- getY());
-    
       float temp = vx;
       float tempy = vy;
     if (sqrt(pow(target.x,2)+pow(target.y,2)) < 100){
@@ -60,6 +59,7 @@ class Enemy extends Attack{
       vx = temp;
       vy = tempy;
     } 
+    
     else {
       if (turn){
         vx*=-1;
@@ -112,8 +112,9 @@ class Enemy extends Attack{
    image(current,x,y); 
   }
   
-  void hurt(int dam){
+  boolean hurt(int dam){
     hp-=dam;
+    return true;
   }
   
   int getHP(){

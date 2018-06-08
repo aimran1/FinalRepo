@@ -48,10 +48,22 @@ public void keyPressed(){
           Player.getFacing() == 1 && e.getY() >= Player.getY() ||
           Player.getFacing() == 0 && e.getX() >= Player.getX()){
          e.hurt(4);
+         if (Player.getFacing() == 3){
+            e.y -= 5; 
+         }
+         if (Player.getFacing() == 2){
+            e.x -= 5; 
+         }
+         if (Player.getFacing() == 1){
+            e.y += 5; 
+         }
+         if (Player.getFacing() == 0){
+            e.x += 5; 
+         }
+       }
      }
    }
- }
-}
+  }
 }
 
 public void keyReleased(){
