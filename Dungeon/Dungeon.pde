@@ -43,22 +43,22 @@ public void keyPressed(){
    Player.attack();
    for(Enemy e:s.enemies){
      if (dist(Player.getX(),Player.getY(),e.getX(),e.getY())<= 30){
-       if(Player.getFacing() == 3 && e.getY() <= Player.getY() ||
+       if(Player.getFacing() == 3 && e.getY() >= Player.getY() ||
           Player.getFacing() == 2 && e.getX() <= Player.getX() ||
-          Player.getFacing() == 1 && e.getY() >= Player.getY() ||
+          Player.getFacing() == 1 && e.getY() <= Player.getY() ||
           Player.getFacing() == 0 && e.getX() >= Player.getX()){
          e.hurt(4);
          if (Player.getFacing() == 3){
-            e.y -= 10; 
+            e.y += 30; 
          }
          if (Player.getFacing() == 2){
-            e.x -= 10; 
+            e.x -= 30; 
          }
          if (Player.getFacing() == 1){
-            e.y += 10; 
+            e.y -= 30; 
          }
          if (Player.getFacing() == 0){
-            e.x += 10; 
+            e.x += 30; 
          }
        }
      }
