@@ -7,7 +7,7 @@ class Enemy extends Attack{
   float speed, angle;
   PImage current;
   PVector myPos, target, player;
-  int hp;
+  int hp,invincibleFrame;
   Enemy(){
    x = width/2;
    y = height/2;
@@ -42,6 +42,7 @@ class Enemy extends Attack{
       return; 
     }
     target = new PVector(fg.getX()-getX(), fg.getY()- getY());
+    
       float temp = vx;
       float tempy = vy;
     if (sqrt(pow(target.x,2)+pow(target.y,2)) < 100){
@@ -59,7 +60,6 @@ class Enemy extends Attack{
       vx = temp;
       vy = tempy;
     } 
-    
     else {
       if (turn){
         vx*=-1;
@@ -80,13 +80,18 @@ class Enemy extends Attack{
         y += vy;
         steps += 1;
       }
+   /*   if (!walkableX() && !walkableY()){
+        steps = 200;
+      }*/
       if (steps == 200){
         steps = 0;
         turn = !turn; 
       } 
     }
     playerCollision(fg);
-    
+    if(invincibleFrame > 0){
+      invincibleFrame--;
+    }
   }
   
   float getX(){
@@ -109,9 +114,42 @@ class Enemy extends Attack{
    image(current,x,y); 
   }
   
-  boolean hurt(int dam){
+  void hurt(int dam, Link s){
+    if(invincibleFrame <=0){
     hp-=dam;
-    return true;
+    invincibleFrame = 14;
+    if(s.facing == s.up){
+      y-=dam*3;
+    }
+    if(s.facing == s.down){
+      y+=dam*3;
+    }
+    if(s.facing == s.left){
+      x-=dam*3;
+    }
+    if(s.facing == s.right){
+      x+=dam*3;
+    }
+    }
+  }
+  
+  
+  void hurt(int dam){
+    if(invincibleFrame <=0){
+    hp-=dam;
+    invincibleFrame = 14;
+    
+    }
+  }
+  
+  void pain(Link s){
+    for(int X = 0; X < x+Dwidth; X++){
+      for(int Y = 0; Y < y+Dheight; Y++){
+        if(get(X,Y) == color(127,127,127)){
+          hurt(4,s);
+        }
+      }
+    }
   }
   
   int getHP(){
@@ -135,5 +173,6 @@ class Enemy extends Attack{
   boolean walkableY(){
     return get((int)(x),(int)(y+vy))!=color(0) && get((int)(x+Dwidth),(int)(y+vy))!=color(0) && get((int)(x),(int)(y+Dheight+vy))!=color(0) && get((int)(x+Dwidth),(int)(y+Dheight+vy))!=color(0);
   }
+  
   
 }

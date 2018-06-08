@@ -16,6 +16,8 @@ public void setup() {
 }
 public void draw() {
   background(255);
+  Player.metaDisplay();
+  s.pain(Player);
   fill(0);
   s.display();
   
@@ -39,31 +41,19 @@ public void keyPressed(){
  if(key == TAB){
    tests.remove(tests.size()-1);
  }
+ /*
  if (key == 'j'){
+   
    Player.attack();
+   
    for(Enemy e:s.enemies){
-     if (dist(Player.getX(),Player.getY(),e.getX(),e.getY())<= 30){
-       if(Player.getFacing() == 3 && e.getY() >= Player.getY() ||
-          Player.getFacing() == 2 && e.getX() <= Player.getX() ||
-          Player.getFacing() == 1 && e.getY() <= Player.getY() ||
-          Player.getFacing() == 0 && e.getX() >= Player.getX()){
-         e.hurt(4);
-         if (Player.getFacing() == 3){
-            e.y += 30; 
-         }
-         if (Player.getFacing() == 2){
-            e.x -= 30; 
-         }
-         if (Player.getFacing() == 1){
-            e.y -= 30; 
-         }
-         if (Player.getFacing() == 0){
-            e.x += 30; 
-         }
-       }
+     if (dist(Player.getX(),Player.getY(),e.getX(),e.getY())<= 10 && 
+       e.getY() < Player.getY()){
+       e.hurt(4);
      }
    }
-  }
+ }
+ */
 }
 
 public void keyReleased(){
