@@ -32,9 +32,9 @@ public void draw() {
   s.display();
     
   if (get((int)Player.x,(int)Player.y) == gates){
-     s = new Room1();
-     Player.x = width/2;
-     Player.y = height/2;
+     s = rooms[1];
+     Player.x = 200;
+     Player.y = 105;
   }
   //test code
   for(Location jerr: tests){
@@ -46,7 +46,9 @@ public void draw() {
   s.update(Player);
   Player.update();
   imageMode(CENTER);
+  surface.setSize(s.map().width,s.map().height);
   image(s.map(),width/2,height/2);
+  imageMode(CORNER);
   //image(s.map(),(width-s.map().width)/2,(height/-s.map().height));
   for(int health = 0; health <= Player.getHP(); health++){
     rect(20+health*4,20,4,10);
@@ -84,7 +86,7 @@ public void keyReleased(){
 }
 
 public void mouseClicked(){
- /* System.out.println(mouseX + " " + mouseY);
+ System.out.println(mouseX + " " + mouseY);
  if(clickO){
   System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ')"); 
   tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',0));
@@ -95,6 +97,6 @@ public void mouseClicked(){
   param1[0] = mouseX;
   param1[1] = mouseY;
   clickO=true;
- }*/
+ }
  
 }
