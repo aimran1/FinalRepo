@@ -18,6 +18,7 @@ public void setup() {
   rooms = new Screen[2];
   rooms[0] = new Screen();
   rooms[1] = new Room1();
+  s = rooms[0];
 }
 public void draw() {
   //pushMatrix();
@@ -34,7 +35,7 @@ public void draw() {
   if (get((int)Player.x,(int)Player.y) == gates){
      s = rooms[1];
      Player.x = 200;
-     Player.y = 105;
+     Player.y = 98;
   }
   //test code
   for(Location jerr: tests){
@@ -50,11 +51,13 @@ public void draw() {
   image(s.map(),width/2,height/2);
   imageMode(CORNER);
   //image(s.map(),(width-s.map().width)/2,(height/-s.map().height));
+  Player.display();
+  
+  fill(255,0,0);
   for(int health = 0; health <= Player.getHP(); health++){
     rect(20+health*4,20,4,10);
   }
-  Player.display();
-
+  fill(0);
   s.coolDisplay();
   text(Player.hp, 100, 100);
   //popMatrix();
@@ -63,9 +66,11 @@ public void draw() {
 public void keyPressed(){
  Player.moveInput(key); 
  if(key == TAB){
- s = new Screen();
+ s = rooms[0];
  Player = new Link();
  }
+ if(key == ENTER)
+ tests.remove(tests.size()-1);
  /*
  if (key == 'j'){
    
@@ -88,7 +93,7 @@ public void keyReleased(){
 public void mouseClicked(){
  System.out.println(mouseX + " " + mouseY);
  if(clickO){
-  System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ')"); 
+  System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ',0)"); 
   tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',0));
   clickO = false;
  }
@@ -98,5 +103,7 @@ public void mouseClicked(){
   param1[1] = mouseY;
   clickO=true;
  }
+ 
+
  
 }

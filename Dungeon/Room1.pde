@@ -6,9 +6,13 @@ class Room1 extends Screen{
  Enemy[] enemies;
  ArrayList<Enemy> LivingBad;
  Room1(){ 
-  elements = new Location[38];
- 
-  gates = new Location[3];
+  elements = new Location[2];
+  elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
+  elements[1] = new Location(198.0,116.0,23.0,88.0,' ',0);
+
+
+  gates = new Location[1];
+  gates[0] = new Location(199.0,96.0,13.0,20.0,' ',color(0,0,254));
 
   screen1 = loadImage("room1.PNG");
     
@@ -28,13 +32,13 @@ class Room1 extends Screen{
 
  
  void display(){
-   //for(int x = 0; x < elements.length;x++){
-   // elements[x].display();
-  //}
+   for(int x = 0; x < elements.length;x++){
+    elements[x].display();
+   }
 
-  //for(int x = 0; x < gates.length;x++){
-  //  gates[x].display();
- // } 
+  for(int x = 0; x < gates.length;x++){
+    gates[x].display();
+  } 
 
 }
  
