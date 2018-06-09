@@ -17,6 +17,9 @@ public void setup() {
   tests = new ArrayList();
 }
 public void draw() {
+  //pushMatrix();
+  //translate(-Player.getX(),-Player.getY());
+  //scale(2.0);
   background(255);
   Player.metaDisplay();
   s.pain(Player);
@@ -35,6 +38,7 @@ public void draw() {
     jerr.display();
   }
   
+
   
   s.update(Player);
   Player.update();
@@ -43,7 +47,7 @@ public void draw() {
 
   s.coolDisplay();
   text(Player.hp, 100, 100);
-
+  //popMatrix();
 }
 
 public void keyPressed(){

@@ -104,41 +104,42 @@ class Link{
   
   void moveInput(char f){
     if(f == 'd'){
-      vx = 5;
+      vx = 3;
       current = StandRight;
       facing = right;
     }
     if(f == 'w'){
-      vy = -5;
+      vy = -3;
       current = StandUp;
       facing = up;
     }
     if(f == 'a'){
-      vx = -5;
+      vx = -3;
       current = StandLeft;
       facing = left;
     }
     if(f == 's'){
-      vy = 5;
+      vy = 3;
       current = StandDown;
       facing = down;
     }
     if(f == 'j'){
       attack();
     }
+    
   }
   
   void unInput(char f){
-    if(f == 'd' && vx == 5){
+    if(f == 'd' && vx > 0){
       vx = 0;
     }
-    if(f == 'w' && vy == -5){
+    if(f == 'w' && vy < 0){
       vy = 0;
     }
-    if(f == 'a' && vx == -5){
+    if(f == 'a' && vx < 0){
       vx = 0;
     }
-    if(f == 's' && vy == 5){
+    if(f == 's' && vy > 0){
       vy = 0;
     }
   }
@@ -203,10 +204,10 @@ class Link{
     //rect(x,y,Dwidth,Dheight);
     imageMode(CORNER);
     if(attackFrame >= 0){
-      if(facing == down)
+      if(currentAttack == attackDown)
       image(current,x,y);
       
-      else if(facing == up){
+      else if(currentAttack == attackUp){
         imageMode(CORNERS);
         image(current,getRightX(),getLowY(),getRightX()-current.width, getLowY()-current.height);
       }

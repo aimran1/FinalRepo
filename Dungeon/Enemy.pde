@@ -143,8 +143,8 @@ class Enemy extends Attack{
   }
   
   void pain(Link s){
-    for(int X = 0; X < x+Dwidth; X++){
-      for(int Y = 0; Y < y+Dheight; Y++){
+    for(int X = (int)x; X < x+Dwidth; X++){
+      for(int Y = (int)y; Y < y+Dheight; Y++){
         if(get(X,Y) == color(127,127,127)){
           hurt(4,s);
         }
