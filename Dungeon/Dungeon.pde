@@ -15,6 +15,9 @@ public void setup() {
   
   //test code
   tests = new ArrayList();
+  rooms = new Screen[2];
+  rooms[0] = new Screen();
+  rooms[1] = new Room1();
 }
 public void draw() {
   //pushMatrix();
@@ -42,7 +45,12 @@ public void draw() {
   
   s.update(Player);
   Player.update();
-  image(s.map(),(width-s.map().width)/2,(height/-s.map().height));
+  imageMode(CENTER);
+  image(s.map(),width/2,height/2);
+  //image(s.map(),(width-s.map().width)/2,(height/-s.map().height));
+  for(int health = 0; health <= Player.getHP(); health++){
+    rect(20+health*4,20,4,10);
+  }
   Player.display();
 
   s.coolDisplay();

@@ -8,7 +8,7 @@ class Room1 extends Screen{
  Room1(){ 
   elements = new Location[38];
  
-  gates = new Location[8];
+  gates = new Location[3];
 
   screen1 = loadImage("room1.PNG");
     

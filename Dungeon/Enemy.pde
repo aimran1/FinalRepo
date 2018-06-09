@@ -119,16 +119,20 @@ class Enemy extends Attack{
     hp-=dam;
     invincibleFrame = 14;
     if(s.facing == s.up){
-      y-=dam*3;
+      float dy = 0;
+      while(walkableY(dy-dam)&&dy>-dam*8){
+      dy-=dam;
+      }
+      y+=dy;
     }
     if(s.facing == s.down){
-      y+=dam*3;
+      y+=dam*9;
     }
     if(s.facing == s.left){
-      x-=dam*3;
+      x-=dam*9;
     }
     if(s.facing == s.right){
-      x+=dam*3;
+      x+=dam*9;
     }
     }
   }
@@ -143,8 +147,8 @@ class Enemy extends Attack{
   }
   
   void pain(Link s){
-    for(int X = (int)x; X < x+Dwidth; X++){
-      for(int Y = (int)y; Y < y+Dheight; Y++){
+    for(int X = (int)x; X <= x+Dwidth; X+=2){
+      for(int Y = (int)y; Y <= y+Dheight; Y+=2){
         if(get(X,Y) == color(127,127,127)){
           hurt(4,s);
         }
@@ -170,9 +174,16 @@ class Enemy extends Attack{
     return get((int)(x+vx),(int)(y))!=color(0) && get((int)(x+Dwidth+vx),(int)(y))!=color(0) && get((int)(x+vx),(int)(y+Dheight))!=color(0) && get((int)(x+Dwidth+vx),(int)(y+Dheight))!=color(0);
   }
   
+   boolean walkableX(float dx){
+    return get((int)(x+dx),(int)(y))!=color(0) && get((int)(x+Dwidth+dx),(int)(y))!=color(0) && get((int)(x+dx),(int)(y+Dheight))!=color(0) && get((int)(x+Dwidth+dx),(int)(y+Dheight))!=color(0);
+  }
+  
   boolean walkableY(){
     return get((int)(x),(int)(y+vy))!=color(0) && get((int)(x+Dwidth),(int)(y+vy))!=color(0) && get((int)(x),(int)(y+Dheight+vy))!=color(0) && get((int)(x+Dwidth),(int)(y+Dheight+vy))!=color(0);
   }
   
+  boolean walkableY(float dy){
+    return get((int)(x),(int)(y+dy))!=color(0) && get((int)(x+Dwidth),(int)(y+dy))!=color(0) && get((int)(x),(int)(y+Dheight+dy))!=color(0) && get((int)(x+Dwidth),(int)(y+Dheight+dy))!=color(0);
+  }
   
 }

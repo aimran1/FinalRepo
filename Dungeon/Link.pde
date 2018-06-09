@@ -193,6 +193,10 @@ class Link{
    return x + Dwidth; 
   }
   
+  int getHP(){
+    return hp;
+  }
+  
   void hurt(int dam){
    if(!(invincibleTime > 0)){
    hp -= dam;
