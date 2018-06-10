@@ -1,7 +1,8 @@
 import java.io.*;
 PImage screen1;
 int place;
-boolean done;
+boolean done = false;
+
 class Room1 extends Screen{
  Location[] elements; 
  Location[] gates;
@@ -93,12 +94,15 @@ class Room1 extends Screen{
 }
 
  void update(Link l){
-   /*for(int x = 0; x < LivingBad.size(); x++){
+   for(int x = 0; x < LivingBad.size(); x++){
     LivingBad.get(x).update(l);
     if(LivingBad.get(x).getHP()<=0){
       LivingBad.remove(x);
     }
-  }*/
+  }
+  if (LivingBad.size() == 0){
+     done = true; 
+  }
 }
 
  void display(){
