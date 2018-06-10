@@ -17,7 +17,7 @@ public void setup() {
   //s = new Screen();
  
  //For map making
-  s = new Room1(0);
+  s = new Room1(1);
   Player.x = 112;
   Player.y = 101;
   
@@ -145,7 +145,7 @@ public void mouseClicked(){
  System.out.println(mouseX + " " + mouseY);
  if(clickO){
   System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ',0)"); 
-  tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',255));
+  tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',0));
   clickO = false;
  }
  else{

@@ -21,13 +21,16 @@ class Room1 extends Screen{
 
     gates = new Location[1];
     gates[0] = new Location(197.0,85.0,28.0,32.0,' ',color(0,225,225));
-    
   }
   
   else if (room == 1){
-    elements = new Location[2];
-    elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
-    elements[1] = new Location(198.0,116.0,23.0,88.0,' ',0);
+    elements = new Location[6];
+    elements[0] = new Location(204.0,92.0,24.0,-91.0,' ',0);
+    elements[1] = new Location(204.0,184.0,24.0,-62.0,' ',0);
+    elements[2] = new Location(27.0,24.0,202.0,-22.0,' ',0);
+    elements[3] = new Location(2.0,212.0,25.0,-188.0,' ',0);
+    elements[4] = new Location(27.0,186.0,201.0,26.0,' ',0);
+    elements[5] = new Location(229.0,118.0,-3.0,-30.0,' ',0);
 
     gates = new Location[1];
     gates[0] = new Location(197.0,85.0,28.0,32.0,' ',color(0,225,225));
