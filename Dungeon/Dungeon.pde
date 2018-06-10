@@ -45,7 +45,6 @@ public void draw() {
   surface.setSize(s.map().width,s.map().height);
   image(s.map(),width/2,height/2);
   imageMode(CORNER);
-  //image(s.map(),(width-s.map().width)/2,(height/-s.map().height));
   Player.display();
   
   fill(255,0,0);
@@ -62,6 +61,7 @@ public void draw() {
      prevX = Player.x;
      prevY = Player.y;
   }
+  
 }
 
 public void keyPressed(){
@@ -84,7 +84,6 @@ public void door(){
     Player.x = prevX;
     Player.y = prevY;
   }
-
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
      s = new Room1(0);
      Player.x = 210;
@@ -100,15 +99,22 @@ public void door(){
      Player.x = 125;
      Player.y = 225;
   }
+  //////////------------BUGGED--------------////////////
    else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 540 && Player.x > 400 && Player.y < 92){
      s = new Room1(3);
      Player.x = 125;
      Player.y = 225;
   }
-  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 860 && Player.x > 640 && Player.y < 92){
+   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 860 && Player.x > 640 && Player.y < 92){
      s = new Room1(3);
      Player.x = 125;
      Player.y = 225;
+  }
+  //////////////////////////////////////////////////////
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x > 1000 && Player.y < 92){
+     s = new Room1(4);
+     Player.x = 125;
+     Player.y = 215;
   }
 }
 
