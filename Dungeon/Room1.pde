@@ -1,6 +1,7 @@
 import java.io.*;
 PImage screen1;
 int place;
+boolean done;
 class Room1 extends Screen{
  Location[] elements; 
  Location[] gates;
@@ -9,18 +10,27 @@ class Room1 extends Screen{
  Room1(int room){
  place = room;
   
-  if (room <= 1){
+  if (room == 0){
+    elements = new Location[6];
+    elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
+    elements[1] = new Location(198.0,116.0,23.0,88.0,' ',0);
+    elements[2] = new Location(220.0,120.0,2.0,-36.0,' ',0);
+    elements[3] = new Location(0.0,206.0,222.0,-22.0,' ',0);
+    elements[4] = new Location(24.0,182.0,-23.0,-180.0,' ',0);
+    elements[5] = new Location(222.0,2.0,-197.0,21.0,' ',0);
+
+    gates = new Location[1];
+    gates[0] = new Location(197.0,85.0,28.0,32.0,' ',color(0,225,225));
+    
+  }
+  
+  else if (room == 1){
     elements = new Location[2];
     elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
     elements[1] = new Location(198.0,116.0,23.0,88.0,' ',0);
 
     gates = new Location[1];
     gates[0] = new Location(197.0,85.0,28.0,32.0,' ',color(0,225,225));
-    
-    if(place == 0){
-    }
-    else if (place == 1){
-    }
   }
   
   else if (room == 2){
@@ -78,13 +88,14 @@ class Room1 extends Screen{
 }
 
  void display(){
-   for(int x = 0; x < elements.length;x++){
-    elements[x].display();
-   }
-
+   
   for(int x = 0; x < gates.length;x++){
     gates[x].display();
   } 
+
+   for(int x = 0; x < elements.length;x++){
+    elements[x].display();
+   }
 
 }
  
@@ -98,8 +109,8 @@ class Room1 extends Screen{
    
  }
  
- void solved(){
-   
+ boolean solved(){
+   return done;
  }
  
  PImage map(){

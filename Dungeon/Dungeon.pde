@@ -2,7 +2,6 @@ Link Player;
 Screen s;
 Screen previous = s;
 float prevX,prevY;
-Screen[] rooms;
 int currentScreen;
 boolean clickO;
 color gates = color(0,0,225);
@@ -15,14 +14,17 @@ public void setup() {
   size(1200, 873);
   imageMode(CENTER);
   Player = new Link();
-  s = new Screen();
+  //s = new Screen();
+ 
+ //For map making
+  s = new Room1(0);
+  Player.x = 112;
+  Player.y = 101;
+  
   //  m = new Chest(width/2, height/2);
 
   //test code
   tests = new ArrayList();
-  rooms = new Screen[1];
-  rooms[0] = new Screen();
-  s = rooms[0];
 }
 public void draw() {
   //pushMatrix();
@@ -100,7 +102,7 @@ public void door(){
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
      s = new Room1(0);
-     Player.x = 210;
+     Player.x = 200;
      Player.y = 90;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 118 && Player.y < 161){
@@ -143,7 +145,7 @@ public void mouseClicked(){
  System.out.println(mouseX + " " + mouseY);
  if(clickO){
   System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ',0)"); 
-  tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',0));
+  tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',255));
   clickO = false;
  }
  else{
