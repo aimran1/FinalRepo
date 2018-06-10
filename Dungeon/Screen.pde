@@ -4,6 +4,7 @@ class Screen {
   Location[] elements; 
   Location[] gates;
   Enemy[] enemies;
+  int place = -1;
   ArrayList<Enemy> LivingBad;
   Screen() { 
     elements = new Location[38];

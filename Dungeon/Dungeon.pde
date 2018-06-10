@@ -85,7 +85,15 @@ Player.moveInput(key);
 public void door(){
   s.display();
   if (get((int)Player.x,(int)Player.y) == retGate){
-    println("Working");
+    if (s.place == 3){
+      if (Player.x <width/2){
+      prevX = 440;
+      prevY = 15;
+      }
+      else{
+         prevX = 745; prevY = 15; 
+      }
+    }
     s = previous;
     Player.x = prevX;
     Player.y = prevY;
