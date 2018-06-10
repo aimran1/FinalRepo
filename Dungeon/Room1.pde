@@ -1,11 +1,13 @@
 import java.io.*;
 PImage screen1;
+int place;
 class Room1 extends Screen{
  Location[] elements; 
  Location[] gates;
  Enemy[] enemies;
  ArrayList<Enemy> LivingBad;
- Room1(int i){
+ Room1(int room){
+   place = room;
   elements = new Location[2];
   elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
   elements[1] = new Location(198.0,116.0,23.0,88.0,' ',0);
@@ -13,11 +15,9 @@ class Room1 extends Screen{
 
   gates = new Location[1];
   gates[0] = new Location(199.0,96.0,13.0,20.0,' ',color(0,0,255));
-  if(i == 0){
-    screen1 = loadImage("room1.PNG");
+  if(place == 0){
   }
-  else if (i == 1){
-     screen1 = loadImage("room2.PNG");
+  else if (place == 1){
   }
 }
  
@@ -50,6 +50,7 @@ class Room1 extends Screen{
  }
  
  PImage map(){
+   screen1 = loadImage("room" + (place + 1)  + ".PNG");
    return (screen1);
  }
 }
