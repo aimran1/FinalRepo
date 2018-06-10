@@ -47,6 +47,9 @@ public void draw() {
 
   Player.display();
   
+  n.isKey(Player);
+  println(Player.keys);
+  
   fill(255,0,0);
   for(int health = 0; health <= Player.getHP(); health++){
     rect(20+health*4,20,4,10);

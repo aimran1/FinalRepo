@@ -1,17 +1,25 @@
 class Key extends Item{
   PImage i;
   float x,y;
+  boolean taken;
   Key(float _x, float _y){
     i = loadImage("key.png");
     x = _x;
     y = _y;
   }
   
-  boolean isKey(){
-     return true; 
+  boolean isKey(Link fg){
+     if (dist(fg.x,fg.y,x,y) <= 5){
+       taken = true;
+       fg.keys += 1;
+       return true; 
+     }
+     return false;
   }
   
   void display(){
+    if (!taken){
      image(i,x,y,25,25); 
+    }  
   }
 }
