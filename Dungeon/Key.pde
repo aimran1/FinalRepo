@@ -4,6 +4,7 @@ class Key extends Item{
   boolean taken;
   Key(float _x, float _y){
     i = loadImage("key.png");
+    taken = false;
     x = _x;
     y = _y;
   }
@@ -11,10 +12,8 @@ class Key extends Item{
   boolean isKey(Link fg){
      if (dist(fg.x,fg.y,x,y) <= 5){
        taken = true;
-       fg.keys += 1;
-       return true; 
      }
-     return false;
+     return taken;
   }
   
   void display(){

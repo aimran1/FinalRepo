@@ -1,3 +1,5 @@
+import java.util.*;
+
 Link Player;
 Screen s;
 Screen previous = s;
@@ -9,7 +11,7 @@ color retGate = color (0,225,225);
 float[] param1;
 ArrayList<Location> tests;
 Chest m;
-Key n;
+ArrayList<Key> n = new ArrayList();
 Attack continuous;
 public void setup() {
   size(1200, 873);
@@ -18,7 +20,8 @@ public void setup() {
   s = new Screen();
 
   //  m = new Chest(width/2, height/2);
-n = new Key(width/2,height/2);
+  Key m = new Key(width/2,height/2);
+  n.add(m);
   //test code
   tests = new ArrayList();
 }
@@ -43,11 +46,25 @@ public void draw() {
   image(s.map(),width/2,height/2);
   imageMode(CORNER);
  // m.display();
-     n.display();
 
   Player.display();
   
-  n.isKey(Player);
+/*  for(Key k: n){
+    k.display();
+    if (k.isKey(Player)){
+        n.remove(k);
+        Player.keys += 1;
+    }
+  }*/  
+  for (Iterator<Key> iterator = n.iterator(); iterator.hasNext();) {
+    Key k = iterator.next();
+    k.display();
+    if (k.isKey(Player)) {
+        iterator.remove();
+        Player.keys += 1;
+    }
+  }
+
   println(Player.keys);
   
   fill(255,0,0);
