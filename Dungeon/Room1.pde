@@ -23,13 +23,23 @@ class Room1 extends Screen{
     }
   }
   
-  else {
+  else if (room == 2){
     elements = new Location[2];
-    elements[0] = new Location(147.0,218.0,117.0,27.0,' ',0);
+    elements[0] = new Location(149.0,218.0,456.0,30.0,' ',0);
     elements[1] = new Location(121.0,219.0,-120.0,27.0,' ',0);
 
     gates = new Location[1];
     gates[0] = new Location(120.0,217.0,28.0,28.0,' ',color(0,225,225)); 
+  }
+  
+  else if (room == 3){
+    elements = new Location[1];
+    elements[0] = new Location(32.0,231.0,574.0,30.0,' ',0);
+
+    gates = new Location[2];
+    gates[0] = new Location(126.0,255.0,32.0,-24.0,' ',color(0,255,255));
+    gates[1] = new Location(450.0,255.0,37.0,-29.0,' ',color(0,255,255));
+
   }
   
 

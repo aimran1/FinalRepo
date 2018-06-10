@@ -39,12 +39,11 @@ public void draw() {
     jerr.display();
   }
   
- 
   s.update(Player);
   Player.update();
   imageMode(CENTER);
   surface.setSize(s.map().width,s.map().height);
- // image(s.map(),width/2,height/2);
+  image(s.map(),width/2,height/2);
   imageMode(CORNER);
   //image(s.map(),(width-s.map().width)/2,(height/-s.map().height));
   Player.display();
@@ -66,19 +65,20 @@ public void draw() {
 }
 
 public void keyPressed(){
- Player.moveInput(key); 
- if(key == TAB){
+Player.moveInput(key); 
+/* if(key == TAB){
  s = rooms[0];
  Player = new Link();
  }
  if(key == ENTER)
- tests.remove(tests.size()-1);
+ tests.remove(tests.size()-1);*/
  if(key == 'e'){
    door();
  }
 }
 
 public void door(){
+  s.display();
   if (get((int)Player.x,(int)Player.y) == retGate){
     s = previous;
     Player.x = prevX;
@@ -100,7 +100,16 @@ public void door(){
      Player.x = 125;
      Player.y = 225;
   }
-   
+   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 540 && Player.x > 400 && Player.y < 92){
+     s = new Room1(3);
+     Player.x = 125;
+     Player.y = 225;
+  }
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 860 && Player.x > 640 && Player.y < 92){
+     s = new Room1(3);
+     Player.x = 125;
+     Player.y = 225;
+  }
 }
 
 public void keyReleased(){
