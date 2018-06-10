@@ -37,6 +37,11 @@ public void draw() {
      Player.x = 210;
      Player.y = 90;
   }
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 118 && Player.y < 161){
+     s = new Room1(1);
+     Player.x = 210;
+     Player.y = 90;
+  }
   
   //test code
   for(Location jerr: tests){
