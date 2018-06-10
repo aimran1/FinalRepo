@@ -17,7 +17,7 @@ public void setup() {
   //s = new Screen();
  
  //For map making
-  s = new Room1(4);
+  s = new Room1(5);
   Player.x = 112;
   Player.y = 101;
   
