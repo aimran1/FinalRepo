@@ -1,5 +1,6 @@
 Link Player;
 Screen s;
+Screen previous = s;
 Screen[] rooms;
 int currentScreen;
 boolean clickO;
@@ -30,37 +31,14 @@ public void draw() {
   Player.metaDisplay();
   s.pain(Player);
   fill(0);
-  Screen temp = s;
-  temp.display();
+  s.display();
  
-    
-  if (get((int)Player.x,(int)Player.y) == retGate){
-    temp = s;
-  }
-  if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
-     temp = new Room1(0);
-     Player.x = 210;
-     Player.y = 90;
-  }
-  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 118 && Player.y < 161){
-     temp = new Room1(1);
-     Player.x = 210;
-     Player.y = 90;
-  }
-  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 181 && Player.y < 92){
-     temp = new Room1(2);
-     Player.x = 125;
-     Player.y = 225;
-  }
-
-   
   //test code
   for(Location jerr: tests){
     jerr.display();
   }
   
-
-  
+ 
   s.update(Player);
   Player.update();
   imageMode(CENTER);
@@ -88,19 +66,32 @@ public void keyPressed(){
  }
  if(key == ENTER)
  tests.remove(tests.size()-1);
- /*
- if (key == 'j'){
-   
-   Player.attack();
-   
-   for(Enemy e:s.enemies){
-     if (dist(Player.getX(),Player.getY(),e.getX(),e.getY())<= 10 && 
-       e.getY() < Player.getY()){
-       e.hurt(4);
-     }
-   }
+ if(key == 'e'){
+   door();
  }
- */
+}
+
+public void door(){
+  if (get((int)Player.x,(int)Player.y) == retGate){
+    s = new Screen();
+  }
+
+  if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
+     s = new Room1(0);
+     Player.x = 210;
+     Player.y = 90;
+  }
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 118 && Player.y < 161){
+     s = new Room1(1);
+     Player.x = 210;
+     Player.y = 90;
+  }
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 181 && Player.y < 92){
+     s = new Room1(2);
+     Player.x = 125;
+     Player.y = 225;
+  }
+   
 }
 
 public void keyReleased(){
