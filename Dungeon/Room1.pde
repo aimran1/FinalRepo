@@ -102,7 +102,6 @@ class Room1 extends Screen{
 }
 
  void display(){
-   
   for(int x = 0; x < gates.length;x++){
     gates[x].display();
   } 

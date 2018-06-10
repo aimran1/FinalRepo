@@ -9,20 +9,16 @@ color retGate = color (0,225,225);
 float[] param1;
 ArrayList<Location> tests;
 Chest m;
+Key n;
 Attack continuous;
 public void setup() {
   size(1200, 873);
   imageMode(CENTER);
   Player = new Link();
-  //s = new Screen();
- 
- //For map making
-  s = new Room1(5);
-  Player.x = 112;
-  Player.y = 101;
-  
-  //  m = new Chest(width/2, height/2);
+  s = new Screen();
 
+  //  m = new Chest(width/2, height/2);
+n = new Key(width/2,height/2);
   //test code
   tests = new ArrayList();
 }
@@ -35,7 +31,6 @@ public void draw() {
   s.pain(Player);
   fill(0);
   s.display();
- 
   //test code
   for(Location jerr: tests){
     jerr.display();
@@ -48,6 +43,7 @@ public void draw() {
   image(s.map(),width/2,height/2);
   imageMode(CORNER);
  // m.display();
+     n.display();
 
   Player.display();
   
