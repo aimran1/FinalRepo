@@ -4,6 +4,7 @@ Screen[] rooms;
 int currentScreen;
 boolean clickO;
 color gates = color(0,0,225);
+color retGate = color (0,225,225);
 float[] param1;
 ArrayList<Location> tests;
 Attack continuous;
@@ -29,25 +30,30 @@ public void draw() {
   Player.metaDisplay();
   s.pain(Player);
   fill(0);
-
-  s.display();
-      
+  Screen temp = s;
+  temp.display();
+ 
+    
+  if (get((int)Player.x,(int)Player.y) == retGate){
+    temp = s;
+  }
   if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
-     s = new Room1(0);
+     temp = new Room1(0);
      Player.x = 210;
      Player.y = 90;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 118 && Player.y < 161){
-     s = new Room1(1);
+     temp = new Room1(1);
      Player.x = 210;
      Player.y = 90;
   }
-   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 181 && Player.y < 92){
-     s = new Room1(2);
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 181 && Player.y < 92){
+     temp = new Room1(2);
      Player.x = 125;
      Player.y = 225;
   }
-  
+
+   
   //test code
   for(Location jerr: tests){
     jerr.display();
@@ -59,7 +65,7 @@ public void draw() {
   Player.update();
   imageMode(CENTER);
   surface.setSize(s.map().width,s.map().height);
-  image(s.map(),width/2,height/2);
+ // image(s.map(),width/2,height/2);
   imageMode(CORNER);
   //image(s.map(),(width-s.map().width)/2,(height/-s.map().height));
   Player.display();

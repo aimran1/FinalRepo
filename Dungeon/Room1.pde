@@ -8,13 +8,14 @@ class Room1 extends Screen{
  ArrayList<Enemy> LivingBad;
  Room1(int room){
   place = room;
+  
   if (room <= 1){
     elements = new Location[2];
     elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
     elements[1] = new Location(198.0,116.0,23.0,88.0,' ',0);
 
     gates = new Location[1];
-    gates[0] = new Location(199.0,96.0,13.0,20.0,' ',color(0,0,255));
+    gates[0] = new Location(199.0,96.0,13.0,20.0,' ',color(0,225,225));
     
     if(place == 0){
     }
@@ -22,11 +23,17 @@ class Room1 extends Screen{
     }
   }
   
-  
+  else {
+    elements = new Location[2];
+    elements[0] = new Location(147.0,218.0,117.0,27.0,' ',0);
+    elements[1] = new Location(121.0,219.0,-120.0,27.0,' ',0);
+
+    gates = new Location[1];
+    gates[0] = new Location(118.0,238.0,29.0,-13.0,'r',color(0,225,225)); 
+  }
   
 
 }
- 
 
  void update(Link l){
    /*for(int x = 0; x < LivingBad.size(); x++){
@@ -37,6 +44,9 @@ class Room1 extends Screen{
   }*/
 }
 
+boolean goBack(){
+ return true; 
+}
  
  void display(){
    for(int x = 0; x < elements.length;x++){
