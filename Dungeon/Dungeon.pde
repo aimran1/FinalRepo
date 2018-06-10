@@ -1,6 +1,7 @@
 Link Player;
 Screen s;
 Screen previous = s;
+float prevX,prevY;
 Screen[] rooms;
 int currentScreen;
 boolean clickO;
@@ -59,6 +60,8 @@ public void draw() {
   
   if (s.isScreen()){
      previous = s; 
+     prevX = Player.x;
+     prevY = Player.y;
   }
 }
 
@@ -78,6 +81,8 @@ public void keyPressed(){
 public void door(){
   if (get((int)Player.x,(int)Player.y) == retGate){
     s = previous;
+    Player.x = prevX;
+    Player.y = prevY;
   }
 
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
