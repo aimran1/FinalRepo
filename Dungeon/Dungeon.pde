@@ -10,7 +10,7 @@ color gates = color(0,0,225);
 color retGate = color (0,225,225);
 float[] param1;
 ArrayList<Location> tests;
-Chest m;
+Chest chest;
 ArrayList<Key> n = new ArrayList();
 Attack continuous;
 public void setup() {
@@ -19,7 +19,7 @@ public void setup() {
   Player = new Link();
   s = new Screen();
 
-  //  m = new Chest(width/2, height/2);
+   chest = new Chest(width/2, height/2);
   Key m = new Key(width/2,height/2);
   n.add(m);
   //test code
@@ -45,17 +45,11 @@ public void draw() {
   surface.setSize(s.map().width,s.map().height);
   image(s.map(),width/2,height/2);
   imageMode(CORNER);
- // m.display();
+  chest.display();
 
   Player.display();
-  
-/*  for(Key k: n){
-    k.display();
-    if (k.isKey(Player)){
-        n.remove(k);
-        Player.keys += 1;
-    }
-  }*/  
+
+//KEY CODE//
   for (Iterator<Key> iterator = n.iterator(); iterator.hasNext();) {
     Key k = iterator.next();
     k.display();
@@ -65,8 +59,6 @@ public void draw() {
     }
   }
 
-  println(Player.keys);
-  
   fill(255,0,0);
   for(int health = 0; health <= Player.getHP(); health++){
     rect(20+health*4,20,4,10);
@@ -94,10 +86,10 @@ Player.moveInput(key);
  if(key == 'e'){
    door();
  }
-  if(key == 'q' && dist(Player.x,Player.y,m.x,m.y) <= 15){
-          m.getItem();
-          m.display();
-  }
+  if(key == 'q' && dist(Player.x,Player.y,chest.x,chest.y) <= 15 && Player.keys >0){
+          chest.getItem(Player);
+          chest.display();
+}
 }
 
 public void door(){

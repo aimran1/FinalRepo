@@ -9,9 +9,9 @@ class Chest{
   //  thing = e;
  }
  
-  void getItem(){
+  void getItem(Link fg){
    i = loadImage("chest2.PNG");
-   //return true;
+   fg.keys -= 1;
  }
  
  void display(){
