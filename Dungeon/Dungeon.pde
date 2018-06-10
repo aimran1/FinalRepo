@@ -56,6 +56,10 @@ public void draw() {
   s.coolDisplay();
   text(Player.hp, 100, 100);
   //popMatrix();
+  
+  if (s.isScreen()){
+     previous = s; 
+  }
 }
 
 public void keyPressed(){
@@ -73,10 +77,10 @@ public void keyPressed(){
 
 public void door(){
   if (get((int)Player.x,(int)Player.y) == retGate){
-    s = new Screen();
+    s = previous;
   }
 
-  if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
      s = new Room1(0);
      Player.x = 210;
      Player.y = 90;

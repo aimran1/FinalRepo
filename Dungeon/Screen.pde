@@ -110,5 +110,7 @@ class Screen {
     return screen;
   }
 
-
+  boolean isScreen(){
+     return true; 
+  }
 }

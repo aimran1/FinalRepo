@@ -65,4 +65,8 @@ class Room1 extends Screen{
    screen1 = loadImage("room" + (place + 1)  + ".PNG");
    return (screen1);
  }
+ 
+ boolean isScreen(){
+    return false; 
+ }
 }
