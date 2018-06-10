@@ -4,6 +4,7 @@ class Screen {
   Location[] elements; 
   Location[] gates;
   Enemy[] enemies;
+  Location[] takeDown = new Location[0];
   int place = -1;
   ArrayList<Enemy> LivingBad;
   Screen() { 
@@ -106,6 +107,24 @@ class Screen {
       bad.display();
     }
   }
+
+
+void reenter(){   
+    LivingBad = new ArrayList<Enemy>();
+    for (int x = 0; x < enemies.length; x++) {
+      LivingBad.add(enemies[x]);
+    }
+    for (int x = 0; x < takeDown.length; x++) {
+      takeDown[x].restore();
+    }
+    
+ }
+ 
+ void solved(){  
+    for (int x = 0; x < takeDown.length; x++) {
+      takeDown[x].kill();
+    }
+ }
 
   PImage map() {
     return screen;

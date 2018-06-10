@@ -10,7 +10,7 @@ class Room1 extends Screen{
  ArrayList<Enemy> LivingBad;
  Room1(int room){
  place = room;
-  
+  LivingBad = new ArrayList();
   if (room == 0){
     elements = new Location[6];
     elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
@@ -122,13 +122,7 @@ class Room1 extends Screen{
   }*/ 
  }
  
- void reenter(){
-   
- }
  
- boolean solved(){
-   return done;
- }
  
  PImage map(){
    screen1 = loadImage("room" + (place + 1)  + ".PNG");

@@ -12,13 +12,27 @@ float[] param1;
 ArrayList<Location> tests;
 Chest chest;
 ArrayList<Key> n = new ArrayList();
+Screen[] rooms;
 Attack continuous;
+
+boolean inColor(color c){
+   return get((int)(Player.getX()),(int)(Player.getY()))!=color(0) && get((int)(Player.getRightX()),(int)(Player.getY()))==c && get((int)(Player.getX()),(int)(Player.getLowY()))==c || get((int)(Player.getRightX()),(int)(Player.getY()))==c;
+ }
+
 public void setup() {
   size(1200, 873);
   imageMode(CENTER);
   Player = new Link();
+  rooms = new Screen[10];
+  rooms[0] = new Screen();
+  rooms[1] = new Room1(0);
+  rooms[2] = new Room1(1);
+  rooms[3] = new Room1(2);
+  rooms[4] = new Room1(3);
+  rooms[5] = new Room1(4);
+  rooms[6] = new Room1(5);
+  s = rooms[0];
   s = new Screen();
-
    chest = new Chest(width/2, height/2);
   Key m = new Key(width/2,height/2);
   n.add(m);
