@@ -9,13 +9,15 @@ color gates = color(0,0,225);
 color retGate = color (0,225,225);
 float[] param1;
 ArrayList<Location> tests;
+Chest m;
 Attack continuous;
 public void setup() {
   size(1200, 873);
   imageMode(CENTER);
   Player = new Link();
   s = new Screen();
-  
+  //  m = new Chest(width/2, height/2);
+
   //test code
   tests = new ArrayList();
   rooms = new Screen[10];
@@ -37,14 +39,16 @@ public void draw() {
   //test code
   for(Location jerr: tests){
     jerr.display();
-  }
-  
+  } 
+
   s.update(Player);
   Player.update();
   imageMode(CENTER);
   surface.setSize(s.map().width,s.map().height);
   image(s.map(),width/2,height/2);
   imageMode(CORNER);
+ // m.display();
+
   Player.display();
   
   fill(255,0,0);
@@ -61,7 +65,6 @@ public void draw() {
      prevX = Player.x;
      prevY = Player.y;
   }
-  
 }
 
 public void keyPressed(){
@@ -75,6 +78,10 @@ Player.moveInput(key);
  if(key == 'e'){
    door();
  }
+  if(key == 'q' && dist(Player.x,Player.y,m.x,m.y) <= 15){
+          m.getItem();
+          m.display();
+  }
 }
 
 public void door(){

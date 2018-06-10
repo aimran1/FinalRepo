@@ -10,6 +10,7 @@ class Link{
   PImage StandUp;
   PImage StandLeft;
   int hp,invincibleTime, attackFrame;
+  int keys = 0;
   PImage[] currentAttack;
   PImage[] currentMeta;
   PImage[] attackDown;
@@ -126,7 +127,6 @@ class Link{
     if(f == 'j'){
       attack();
     }
-    
   }
   
   void unInput(char f){

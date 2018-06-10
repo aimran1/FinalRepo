@@ -2,20 +2,21 @@ class Chest{
  Item thing;
  int x,y;
  PImage i;
- Chest(Item e,int _x,int _y){
+ Chest(int _x,int _y){
     i = loadImage("chest1.PNG");  
     x = _x;
     y = _y;
-    thing = e;
+  //  thing = e;
  }
  
- Item getItem(){
+  void getItem(){
    i = loadImage("chest2.PNG");
-   return thing;
+   //return true;
  }
  
  void display(){
-  image(i,x,y); 
+   imageMode(CENTER);
+  image(i, x,y,50,50); 
  }
-
+ 
 }
