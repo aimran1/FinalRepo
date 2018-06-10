@@ -20,10 +20,8 @@ public void setup() {
 
   //test code
   tests = new ArrayList();
-  rooms = new Screen[10];
+  rooms = new Screen[1];
   rooms[0] = new Screen();
- // rooms[1] = new Room1(0);
- // rooms[2] = new Room1(1);
   s = rooms[0];
 }
 public void draw() {
@@ -61,10 +59,12 @@ public void draw() {
   //popMatrix();
   
   if (s.isScreen()){
+    println(true);
      previous = s; 
      prevX = Player.x;
      prevY = Player.y;
   }
+ // else{println(false);}
 }
 
 public void keyPressed(){
