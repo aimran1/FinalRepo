@@ -32,7 +32,7 @@ public void draw() {
   
   s.display();
     
-  if (get((int)Player.x,(int)Player.y) == gates){
+  if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
      s = rooms[1];
      Player.x = 200;
      Player.y = 98;
