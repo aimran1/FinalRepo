@@ -116,6 +116,11 @@ public void door(){
      Player.x = 125;
      Player.y = 215;
   }
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x > width/2 && Player.y > height/2){
+     s = new Room1(5);
+     Player.x = 20;
+     Player.y = 115;
+  }
 }
 
 public void keyReleased(){
