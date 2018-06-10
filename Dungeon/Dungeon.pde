@@ -15,9 +15,10 @@ public void setup() {
   
   //test code
   tests = new ArrayList();
-  rooms = new Screen[2];
+  rooms = new Screen[10];
   rooms[0] = new Screen();
-  rooms[1] = new Room1();
+  rooms[1] = new Room1(0);
+//  rooms[2] = new Room1(1);
   s = rooms[0];
 }
 public void draw() {
@@ -34,8 +35,8 @@ public void draw() {
     
   if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
      s = rooms[1];
-     Player.x = 200;
-     Player.y = 98;
+     Player.x = 210;
+     Player.y = 90;
   }
   //test code
   for(Location jerr: tests){

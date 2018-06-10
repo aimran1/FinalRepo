@@ -39,7 +39,6 @@ class Screen {
     elements[29] = new Location(0.0, 2.0, 8.0, 867.0, ' ', 0);
     elements[30] = new Location(1198.0, 2.0, -11.0, 865.0, ' ', 0);
     elements[31] = new Location(341.0, 771.0, -4.0, 68.0, ' ', 0);
-    ;
     elements[32] = new Location(5.0, 863.0, 26.0, -831.0, ' ', 0);
     elements[33] = new Location(576.0, 833.0, -571.0, 30.0, ' ', 0);
     elements[34] = new Location(1193.0, 865.0, -573.0, -28.0, ' ', 0);
