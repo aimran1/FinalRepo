@@ -90,6 +90,14 @@ class Room1 extends Screen{
   }*/ 
  }
  
+ void reenter(){
+   
+ }
+ 
+ void solved(){
+   
+ }
+ 
  PImage map(){
    screen1 = loadImage("room" + (place + 1)  + ".PNG");
    return (screen1);
