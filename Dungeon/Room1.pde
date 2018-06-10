@@ -50,11 +50,15 @@ class Room1 extends Screen{
   }
     
   else if (room == 3){
-    elements = new Location[4];
+    elements = new Location[7];
     elements[0] = new Location(162.0,257.0,292.0,-22.0,' ',0);
     elements[1] = new Location(611.0,236.0,-124.0,27.0,' ',0);
     elements[2] = new Location(3.0,263.0,124.0,-34.0,' ',0);
     elements[3] = new Location(111.0,253.0,495.0,9.0,' ',0);
+    elements[4] = new Location(578.0,34.0,33.0,232.0,' ',0);
+    elements[5] = new Location(33.0,31.0,576.0,-29.0,' ',0);
+    elements[6] = new Location(2.0,3.0,30.0,228.0,' ',0);
+
 
 
     gates = new Location[2];
