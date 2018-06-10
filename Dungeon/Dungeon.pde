@@ -59,12 +59,10 @@ public void draw() {
   //popMatrix();
   
   if (s.isScreen()){
-    println(true);
      previous = s; 
      prevX = Player.x;
      prevY = Player.y;
   }
- // else{println(false);}
 }
 
 public void keyPressed(){
@@ -87,6 +85,7 @@ Player.moveInput(key);
 public void door(){
   s.display();
   if (get((int)Player.x,(int)Player.y) == retGate){
+    println("Working");
     s = previous;
     Player.x = prevX;
     Player.y = prevY;
@@ -106,18 +105,16 @@ public void door(){
      Player.x = 125;
      Player.y = 225;
   }
-  //////////------------BUGGED--------------////////////
-   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 540 && Player.x > 400 && Player.y < 92){
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 540 && Player.x > 400 && Player.y < 92){
      s = new Room1(3);
-     Player.x = 125;
+     Player.x = 135;
      Player.y = 225;
   }
-   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 860 && Player.x > 640 && Player.y < 92){
+  else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 860 && Player.x > 640 && Player.y < 92){
      s = new Room1(3);
-     Player.x = 125;
-     Player.y = 225;
+     Player.x = 460;
+     Player.y = 230;
   }
-  //////////////////////////////////////////////////////
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x > 1000 && Player.y < 92){
      s = new Room1(4);
      Player.x = 125;
