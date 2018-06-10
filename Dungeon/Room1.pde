@@ -7,18 +7,24 @@ class Room1 extends Screen{
  Enemy[] enemies;
  ArrayList<Enemy> LivingBad;
  Room1(int room){
-   place = room;
-  elements = new Location[2];
-  elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
-  elements[1] = new Location(198.0,116.0,23.0,88.0,' ',0);
+  place = room;
+  if (room <= 1){
+    elements = new Location[2];
+    elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
+    elements[1] = new Location(198.0,116.0,23.0,88.0,' ',0);
 
+    gates = new Location[1];
+    gates[0] = new Location(199.0,96.0,13.0,20.0,' ',color(0,0,255));
+    
+    if(place == 0){
+    }
+    else if (place == 1){
+    }
+  }
+  
+  
+  
 
-  gates = new Location[1];
-  gates[0] = new Location(199.0,96.0,13.0,20.0,' ',color(0,0,255));
-  if(place == 0){
-  }
-  else if (place == 1){
-  }
 }
  
 
