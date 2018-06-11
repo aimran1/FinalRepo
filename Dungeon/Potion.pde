@@ -1,4 +1,4 @@
-class Potion extends Item{
+class Potion{
   int health;
   int x,y;
   PImage p = loadImage("potion.png");
@@ -10,14 +10,18 @@ class Potion extends Item{
   }
   
   boolean isPotion(Link fg){
-     if (dist(fg.x,fg.y,x,y) <= 5){
+     if (dist(fg.x,fg.y,x,y) <= 10){
        taken = true;
-       fg.hp += health;
+       return true;
      }
+     taken = false;
      return taken;
   }
   
   void display(){
-   image(p,x,y,25,25); 
-  }  
+    if (taken){}
+    else{
+   image(p,x,y,15,15); 
+}
+}
 }

@@ -11,9 +11,13 @@ color gates = color(0,0,225);
 color retGate = color (0,225,225);
 color specialGate = color(125,0,125);
 float[] param1;
+boolean addHealth = false;
 ArrayList<Location> tests;
-Chest[] chest;
 ArrayList<Key> n = new ArrayList();
+ArrayList<Potion> f = new ArrayList();
+ArrayList<Potion> f2 = new ArrayList();
+
+Chest[] chest;
 Screen[] rooms;
 Attack continuous;
 
@@ -36,12 +40,15 @@ public void setup() {
   s = rooms[0];
   s = new Screen();
    chest = new Chest[2];
-   Item i = new Potion (64,150);
-   chest[0] = new Chest(64,150, i);
-   chest[1] = new Chest(width/2,height/2, i);
+   Potion i = new Potion (69,150);
+   Potion p = new Potion(310,120);
+   chest[0] = new Chest(64,150);
+   chest[1] = new Chest(303,120);
 
   Key m = new Key(218,199);
   n.add(m);
+  f.add(i);
+  f2.add(p);
   //test code
   tests = new ArrayList();
 }
@@ -67,9 +74,25 @@ public void draw() {
   imageMode(CORNER);
  if (room == 2 ){
    chest[0].display();
- }
+   if (f.size() > 0){
+
+   f.get(0).display();
+   if (f.get(0).isPotion(Player)){
+     addHealth = true;
+     f.remove(f.get(0));
+   }
+   }
+   }
  else if (room == 4){
    chest[1].display();
+   if (f2.size() > 0){
+      f2.get(0).display();
+         if(f2.get(0).isPotion(Player)){
+            addHealth = true; 
+                 f2.remove(f2.get(0));
+
+         }
+   }
  }
 
   Player.display();
@@ -87,6 +110,10 @@ if (room == 7){
 }
 
   fill(255,0,0);
+  if (addHealth){
+    Player.hp += 10;
+    addHealth = false;
+  }
   for(int health = 0; health <= Player.getHP(); health++){
     rect(20+health*4,20,4,10);
   }
@@ -100,7 +127,6 @@ if (room == 7){
      prevX = Player.x;
      prevY = Player.y;
   }
-  //println(Player.hp);
 //  println(Player.keys);
 }
 
