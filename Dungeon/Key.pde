@@ -18,7 +18,7 @@ class Key extends Item{
   
   void display(){
     if (!taken){
-     image(i,x,y,25,25); 
+     image(i,x,y,15,15); 
     }  
   }
 }
