@@ -5,12 +5,14 @@ Screen s;
 Screen previous = s;
 float prevX,prevY;
 int currentScreen;
+int room = 0;
 boolean clickO;
 color gates = color(0,0,225);
 color retGate = color (0,225,225);
+color specialGate = color(125,0,125);
 float[] param1;
 ArrayList<Location> tests;
-Chest chest;
+Chest[] chest;
 ArrayList<Key> n = new ArrayList();
 Screen[] rooms;
 Attack continuous;
@@ -33,8 +35,12 @@ public void setup() {
   rooms[6] = new Room1(5);
   s = rooms[0];
   s = new Screen();
-   chest = new Chest(width/2, height/2);
-  Key m = new Key(width/2,height/2);
+   chest = new Chest[2];
+   Item i = new Potion (64,150);
+   chest[0] = new Chest(64,150, i);
+   chest[1] = new Chest(width/2,height/2, i);
+
+  Key m = new Key(218,199);
   n.add(m);
   //test code
   tests = new ArrayList();
@@ -59,11 +65,17 @@ public void draw() {
   surface.setSize(s.map().width,s.map().height);
   image(s.map(),width/2,height/2);
   imageMode(CORNER);
-  chest.display();
+ if (room == 2 ){
+   chest[0].display();
+ }
+ else if (room == 4){
+   chest[1].display();
+ }
 
   Player.display();
 
 //KEY CODE//
+if (room == 7){
   for (Iterator<Key> iterator = n.iterator(); iterator.hasNext();) {
     Key k = iterator.next();
     k.display();
@@ -72,6 +84,7 @@ public void draw() {
         Player.keys += 1;
     }
   }
+}
 
   fill(255,0,0);
   for(int health = 0; health <= Player.getHP(); health++){
@@ -87,6 +100,8 @@ public void draw() {
      prevX = Player.x;
      prevY = Player.y;
   }
+  println(Player.hp);
+  println(Player.keys);
 }
 
 public void keyPressed(){
@@ -100,15 +115,20 @@ Player.moveInput(key);
  if(key == 'e'){
    door();
  }
-  if(key == 'q' && dist(Player.x,Player.y,chest.x,chest.y) <= 15 && Player.keys >0){
-          chest.getItem(Player);
-          chest.display();
-}
+  if(key == 'q'){
+    for(Chest c:chest){try{
+     if (dist(Player.x,Player.y,c.x,c.y) <= 15){
+          c.getItem(Player);
+          c.display();
+      }}catch(NullPointerException e){}
+    }
+  }
 }
 
 public void door(){
   s.display();
   if (get((int)Player.x,(int)Player.y) == retGate){
+    room = 0;
     if (s.place == 3){
       if (Player.x <width/2){
       prevX = 440;
@@ -123,40 +143,49 @@ public void door(){
     Player.y = prevY;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
-     s = new Room1(0);
+     room = 1;
+    s = new Room1(0);
      Player.x = 200;
      Player.y = 90;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 118 && Player.y < 161){
-     s = new Room1(1);
+        room = 2;
+    s = new Room1(1);
      Player.x = 200;
      Player.y = 95;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 181 && Player.y < 92){
-     s = new Room1(2);
+      room = 3;
+
+    s = new Room1(2);
      Player.x = 125;
      Player.y = 225;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 540 && Player.x > 400 && Player.y < 92){
-     s = new Room1(3);
+    room = 4;
+    s = new Room1(3);
      Player.x = 135;
      Player.y = 225;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 860 && Player.x > 640 && Player.y < 92){
-     s = new Room1(3);
+    room = 5;
+    s = new Room1(3);
      Player.x = 460;
      Player.y = 230;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x > 1000 && Player.y < 92){
-     s = new Room1(4);
+    room = 6;
+    s = new Room1(4);
      Player.x = 125;
      Player.y = 215;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x > width/2 && Player.y > height/2){
-     s = new Room1(5);
+     room = 7;
+    s = new Room1(5);
      Player.x = 20;
      Player.y = 115;
   }
+  
 }
 
 public void keyReleased(){

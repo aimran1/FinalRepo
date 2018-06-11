@@ -2,6 +2,7 @@ import java.io.*;
 PImage screen1;
 int place;
 boolean done = false;
+Chest c;
 
 class Room1 extends Screen{
  Location[] elements; 
@@ -35,6 +36,7 @@ class Room1 extends Screen{
 
     gates = new Location[1];
     gates[0] = new Location(197.0,85.0,28.0,32.0,' ',color(0,225,225));
+    
   }
   
   else if (room == 2){
