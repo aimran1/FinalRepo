@@ -100,8 +100,8 @@ if (room == 7){
      prevX = Player.x;
      prevY = Player.y;
   }
-  println(Player.hp);
-  println(Player.keys);
+  //println(Player.hp);
+//  println(Player.keys);
 }
 
 public void keyPressed(){

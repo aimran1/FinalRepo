@@ -63,7 +63,7 @@ class Room1 extends Screen{
     elements[6] = new Location(2.0,3.0,30.0,228.0,' ',0);
 
     gates = new Location[2];
-    gates[0] = new Location(126.0,254.0,35.0,-25.0,' ',color(0,225,225));
+    gates[0] = new Location(124.0,256.0,35.0,-30.0,' ',color(0,225,225));
     gates[1] = new Location(444.0,261.0,42.0,-33.0,' ',color(0,225,225));
   }
   
