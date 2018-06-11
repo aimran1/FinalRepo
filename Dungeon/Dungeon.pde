@@ -211,7 +211,13 @@ public void door(){
      Player.x = 20;
      Player.y = 115;
   }
-  
+  else if (get((int)Player.x,(int)Player.y) == specialGate && Player.keys > 0){
+     room = 8;
+     Player.keys -= 1;
+    s = new Room1(6);
+     Player.x = 49;
+     Player.y = 163;
+  }
 }
 
 public void keyReleased(){
