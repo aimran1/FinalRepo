@@ -129,8 +129,8 @@ public void door(){
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 118 && Player.y < 161){
      s = new Room1(1);
-     Player.x = 210;
-     Player.y = 90;
+     Player.x = 200;
+     Player.y = 95;
   }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < 181 && Player.y < 92){
      s = new Room1(2);
