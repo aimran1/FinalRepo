@@ -29,6 +29,13 @@ class Pushable{
   
   void update(Link l){
     if(!solved){
+      
+    if(l.facing != l.up){
+      solved = true;
+      metaDisplay();
+      solved = false;
+    }
+    else{
     for(int f = (int)x; f < x+Dwidth; f++){
       if(  (inBet(x,l.getX(),l.getRightX())||inBet(x+Dwidth,l.getX(),l.getRightX())) && (inBet(y,l.getY(),l.getLowY())||inBet(y+Dheight,l.getY(),l.getLowY())) ){
         y--;
@@ -38,6 +45,7 @@ class Pushable{
     }
     if(y<=solveY){
       solved = true;
+    }
     }
   }
 
