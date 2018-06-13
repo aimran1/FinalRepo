@@ -145,7 +145,11 @@ class Link{
   }
   
   boolean walkableX(){
-    return get((int)(x+vx),(int)(y))!=color(0) && get((int)(x+Dwidth+vx),(int)(y))!=color(0) && get((int)(x+vx),(int)(y+Dheight))!=color(0) && get((int)(x+Dwidth+vx),(int)(y+Dheight))!=color(0);
+    boolean ans = true;
+    for(int Y = (int)y; Y < getLowY();Y++){
+    ans= ans && get((int)(x+vx),(int)(Y))!=color(0) && get((int)(x+Dwidth+vx),(int)(Y))!=color(0);// && get((int)(x+vx),(int)(y+Dheight))!=color(0) && get((int)(x+Dwidth+vx),(int)(y+Dheight))!=color(0);
+    }  
+    return ans;
   }
   
   boolean walkableY(){

@@ -6,6 +6,7 @@ class Screen {
   Enemy[] enemies;
   Location[] takeDown = new Location[0];
   int place = -1;
+  Pushable[] blocks = new Pushable[0];;
   ArrayList<Enemy> LivingBad;
   Screen() { 
     elements = new Location[38];

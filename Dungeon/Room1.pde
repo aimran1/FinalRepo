@@ -23,6 +23,9 @@ class Room1 extends Screen{
 
     gates = new Location[1];
     gates[0] = new Location(197.0,85.0,28.0,32.0,' ',color(0,225,225));
+    
+    blocks = new Pushable[1];
+    blocks[0] = new Pushable(63, 47);
   }
   
   else if (room == 1){
@@ -128,15 +131,18 @@ class Room1 extends Screen{
    for(int x = 0; x < elements.length;x++){
     elements[x].display();
    }
-
-}
- 
- void coolDisplay(){
- /* for(Enemy bad: LivingBad){
-    bad.display();
-  }*/ 
+   
  }
  
+ void coolDisplay(){
+  for(Enemy bad: LivingBad){
+    bad.display();
+  }
+  
+  for(int x = 0; x < blocks.length;x++){
+    blocks[x].display();
+   }
+ }
  
  
  PImage map(){
