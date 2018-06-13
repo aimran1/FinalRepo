@@ -117,10 +117,15 @@ class Room1 extends Screen{
     if(LivingBad.get(x).getHP()<=0){
       LivingBad.remove(x);
     }
+    
   }
   if (LivingBad.size() == 0){
      done = true; 
   }
+  
+  for(int x = 0; x < blocks.length;x++){
+    blocks[x].update(l);
+   }
 }
 
  void display(){
@@ -132,6 +137,9 @@ class Room1 extends Screen{
     elements[x].display();
    }
    
+   for(int x = 0; x < blocks.length;x++){
+    blocks[x].metaDisplay();
+   }
  }
  
  void coolDisplay(){
