@@ -1,5 +1,5 @@
 class StartScreen extends Screen{
-  StartScreen(){
+StartScreen(){
    super(); 
   }
 }

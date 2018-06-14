@@ -1,5 +1,4 @@
 class Chest{
- ArrayList<Item> thing = new ArrayList();
  int x,y;
  boolean open;
  PImage i;

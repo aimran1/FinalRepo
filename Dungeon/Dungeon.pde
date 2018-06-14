@@ -109,6 +109,12 @@ if (room == 7){
   }
 }
 
+if (room == 8){
+ if  (get((int)Player.x,(int)Player.y) == gates){
+  s = new Room1(7); 
+ }
+}
+
   fill(255,0,0);
   if (addHealth){
     Player.hp += 10;
@@ -212,11 +218,11 @@ public void door(){
      Player.y = 115;
   }
   else if (get((int)Player.x,(int)Player.y) == specialGate && Player.keys > 0){
-     room = 8;
-     Player.keys -= 1;
+    room = 8;
+    Player.keys -= 1;
     s = new Room1(6);
-     Player.x = 49;
-     Player.y = 163;
+    Player.x = 49;
+    Player.y = 163;
   }
 }
 

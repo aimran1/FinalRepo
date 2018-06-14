@@ -1,4 +1,4 @@
-class Key extends Item{
+class Key{
   PImage i;
   float x,y;
   boolean taken;
