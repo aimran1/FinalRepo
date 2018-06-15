@@ -26,7 +26,7 @@ boolean inColor(color c){
  }
 
 public void setup() {
-  size(902, 507);
+  size(1200, 873);
   imageMode(CENTER);
   Player = new Link();
  /* rooms = new Screen[10];

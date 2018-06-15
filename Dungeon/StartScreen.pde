@@ -3,6 +3,7 @@ class StartScreen extends Screen{
 StartScreen(int i){
     if ( i == 0){
        cover = loadImage("cover.jpg"); 
+       cover.resize(1200,873);
     }
     if ( i == 1){
        cover = loadImage("victory.jpg"); 
@@ -14,9 +15,9 @@ StartScreen(int i){
   
   void display(){
     image(cover,width/2,height/2);
-    rect(550,430,300,50);
+    rect(686,779,300,50);
     fill(0);
-    text("Begin Your Quest",550,430,850,480);
+    text("Begin Your Quest",686,779,986,829);
     textSize(35);
     fill(color(150,150,150));
   }
