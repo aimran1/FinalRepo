@@ -26,6 +26,7 @@ StartScreen(int i){
     clickX2 = 855;
     clickY2 = 829;
     }
+    cover.resize(1200,873);
   }
   
   int[] getLocs(){

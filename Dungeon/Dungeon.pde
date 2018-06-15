@@ -17,6 +17,7 @@ ArrayList<Key> n = new ArrayList();
 ArrayList<Potion> f = new ArrayList();
 ArrayList<Potion> f2 = new ArrayList();
 int[] buttons;
+Turret turr1;
 Chest[] chest;
 Screen[] rooms;
 Attack continuous;
@@ -38,7 +39,7 @@ public void setup() {
    Potion p = new Potion(310,120);
    chest[0] = new Chest(64,150);
    chest[1] = new Chest(303,120);
-
+  turr1 = new Turret(589,421,200, Player);
   Key m = new Key(218,199);
   n.add(m);
   f.add(i);
@@ -49,6 +50,8 @@ public void setup() {
 
 
 public void draw() {
+  //println(dist(turr1.Ox,Player.x,turr1.Oy,Player.y));
+  println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
 
   background(255);
   if (Player.hp <= 0){
@@ -66,6 +69,7 @@ public void draw() {
 
   s.update(Player);
   Player.update();
+  turr1.update();
   imageMode(CENTER);
   surface.setSize(s.map().width,s.map().height);
   image(s.map(),width/2,height/2);
@@ -94,6 +98,7 @@ public void draw() {
  }
 
   Player.display();
+  turr1.display();
 
 //KEY CODE//
 if (room == 7){
@@ -117,7 +122,6 @@ if (room == 9){
  }
  fill(0);
 }
-
   fill(255,0,0);
   if (addHealth){
     Player.hp += 10;
@@ -128,10 +132,10 @@ if (room == 9){
   }
   fill(0);
   s.coolDisplay();
+
   text(Player.hp, 100, 100);
 
-println (room + " " + s.done);
-    
+  
     if (room == 9 & s.done){
     s = previous;
 
@@ -263,8 +267,8 @@ public void keyReleased(){
 public void mouseClicked(){
   
   //Development Code
- /*System.out.println(mouseX + " " + mouseY);
- if(clickO){
+ System.out.println(mouseX + " " + mouseY);
+ /*if(clickO){
   System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ',0)"); 
   tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',0));
   clickO = false;
@@ -276,7 +280,7 @@ public void mouseClicked(){
   clickO=true;
  }*/
  
- if (s.isStart()){            
+if (s.isStart()){            
    if (mouseX >=buttons[0] && buttons[1] >= mouseX &&
        mouseY >=buttons[2] && buttons[3] >= mouseY){
     s = new Screen();
