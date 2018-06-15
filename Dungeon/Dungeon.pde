@@ -57,6 +57,7 @@ public void draw() {
   //translate(-Player.getX(),-Player.getY());
   //scale(2.0);
   background(255);
+  if (!s.isStart()){
   Player.metaDisplay();
   s.pain(Player);
   fill(0);
@@ -132,6 +133,10 @@ if (room == 8){
      previous = s; 
      prevX = Player.x;
      prevY = Player.y;
+  }
+  }
+  else {
+     s.display(); 
   }
 //  println(Player.keys);
 }

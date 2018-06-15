@@ -13,7 +13,8 @@ StartScreen(int i){
   }
   
   void display(){
-    background(cover);
+    imageMode(CORNER);
+    image(cover,0,0);
   }
   
     boolean isScreen(){
