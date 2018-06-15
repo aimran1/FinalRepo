@@ -16,7 +16,10 @@ ArrayList<Location> tests;
 ArrayList<Key> n = new ArrayList();
 ArrayList<Potion> f = new ArrayList();
 ArrayList<Potion> f2 = new ArrayList();
+ArrayList<Turret> turr = new ArrayList();
 int[] buttons;
+int[] turretLoc = new int[2];
+int time;
 Turret turr1;
 Chest[] chest;
 Screen[] rooms;
@@ -39,11 +42,13 @@ public void setup() {
    Potion p = new Potion(310,120);
    chest[0] = new Chest(64,150);
    chest[1] = new Chest(303,120);
-  turr1 = new Turret(589,421,200, Player);
+   turretLoc[0]= width/2 - 15; 
+   turretLoc[1]= height/2;
   Key m = new Key(218,199);
   n.add(m);
   f.add(i);
   f2.add(p);
+  time= millis();
   //test code
   tests = new ArrayList();
 }
@@ -51,8 +56,6 @@ public void setup() {
 
 public void draw() {
   //println(dist(turr1.Ox,Player.x,turr1.Oy,Player.y));
-  println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
-
   background(255);
   if (Player.hp <= 0){
     s = previous;
@@ -67,9 +70,18 @@ public void draw() {
     jerr.display();
   } 
 
+  if (millis() >= time + 5000){
+    turr.add(new Turret(width/2-10,height/2,200, Player));
+    time = millis();
+  //  return;
+    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
+  } 
+
   s.update(Player);
   Player.update();
-  turr1.update();
+  for (Turret m:turr){
+    m.update(); 
+  }
   imageMode(CENTER);
   surface.setSize(s.map().width,s.map().height);
   image(s.map(),width/2,height/2);
@@ -98,8 +110,9 @@ public void draw() {
  }
 
   Player.display();
-  turr1.display();
-
+  for (Turret m:turr){
+     m.display(); 
+  }
 //KEY CODE//
 if (room == 7){
   for (Iterator<Key> iterator = n.iterator(); iterator.hasNext();) {
@@ -257,6 +270,10 @@ public void door(){
       Player.x = 125;
       Player.y = 490;
   }
+
+}
+
+void turretStuff(){
 
 }
 
