@@ -8,6 +8,8 @@ class Screen {
   int place = -1;
   Pushable[] blocks = new Pushable[0];;
   ArrayList<Enemy> LivingBad;
+  int clickX1,clickY1,clickX2,clickY2;
+
   Screen() { 
     elements = new Location[38];
     elements[0] = new Location(483.0, 88.0, 230.0, 78.0, ' ', 0);
@@ -137,5 +139,9 @@ void reenter(){
     
   boolean isStart(){
    return false; 
+  }
+  
+  int[] getLocs(){
+     return new int[0]; 
   }
 }

@@ -16,7 +16,7 @@ ArrayList<Location> tests;
 ArrayList<Key> n = new ArrayList();
 ArrayList<Potion> f = new ArrayList();
 ArrayList<Potion> f2 = new ArrayList();
-
+int[] buttons;
 Chest[] chest;
 Screen[] rooms;
 Attack continuous;
@@ -39,6 +39,7 @@ public void setup() {
   rooms[6] = new Room1(5);
   s = rooms[0];*/
   s = new StartScreen(0);
+  buttons = s.getLocs();
    chest = new Chest[2];
    Potion i = new Potion (69,150);
    Potion p = new Potion(310,120);
@@ -52,12 +53,17 @@ public void setup() {
   //test code
   tests = new ArrayList();
 }
+
+
 public void draw() {
   //pushMatrix();
   //translate(-Player.getX(),-Player.getY());
   //scale(2.0);
   background(255);
-  if (!s.isStart()){
+  if (Player.hp <= 0){
+    s = new StartScreen(2);
+  }
+ if (!s.isStart()){
   Player.metaDisplay();
   s.pain(Player);
   fill(0);
@@ -133,13 +139,15 @@ if (room == 8){
      previous = s; 
      prevX = Player.x;
      prevY = Player.y;
-  }
+    }
   }
   else {
      s.display(); 
   }
 //  println(Player.keys);
 }
+
+
 
 public void keyPressed(){
 Player.moveInput(key); 
@@ -161,6 +169,8 @@ Player.moveInput(key);
     }
   }
 }
+
+
 
 public void door(){
   s.display();
@@ -262,8 +272,14 @@ public void mouseClicked(){
   clickO=true;
  }
  
-  if (get(mouseX,mouseY) == color(150,150,150)){
+ if (s.isStart()){            
+   println(buttons[0] + " " + buttons[1] + " " +buttons[2] + " " +buttons[3]);
+println(mouseX + " " + mouseY);
+   if (mouseX >=buttons[0] && buttons[1] >= mouseX &&
+       mouseY >=buttons[2] && buttons[3] >= mouseY){
+         println(":wast");
     s = new Screen();
   }
+ }
  
 }

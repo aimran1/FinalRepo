@@ -43,7 +43,7 @@ class Link{
    facings[right] = StandRight;
    facings[up] = StandUp;
    facings[down] = StandDown;
-   hp = 40;
+   hp = 10; //40
    attackFrame = -1;
    ArrayList<String> loadAttack = new ArrayList(4);
    loadAttack.add("attackDown");
