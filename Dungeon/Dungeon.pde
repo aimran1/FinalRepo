@@ -143,6 +143,8 @@ if (room == 8){
   }
   else {
      s.display(); 
+     buttons = s.getLocs();
+
   }
 //  println(Player.keys);
 }
@@ -279,6 +281,7 @@ println(mouseX + " " + mouseY);
        mouseY >=buttons[2] && buttons[3] >= mouseY){
          println(":wast");
     s = new Screen();
+    Player = new Link();
   }
  }
  
