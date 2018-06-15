@@ -4,6 +4,7 @@ class Screen {
   Location[] elements; 
   Location[] gates;
   Enemy[] enemies;
+  boolean done = false;
   Location[] takeDown = new Location[0];
   int place = -1;
   Pushable[] blocks = new Pushable[0];;

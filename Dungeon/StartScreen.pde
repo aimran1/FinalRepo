@@ -3,6 +3,7 @@ class StartScreen extends Screen{
   int type;
   int clickX1,clickY1,clickX2,clickY2;
 StartScreen(int i){
+  size(1200,873);
   type = i;
     if ( i == 0){
        cover = loadImage("cover.jpg"); 

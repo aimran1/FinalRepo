@@ -116,11 +116,11 @@ if (room == 7){
   }
 }
 
-if (room == 8){
+/*if (room == 8){
  if  (get((int)Player.x,(int)Player.y) == gates){
   s = new Room1(7); 
  }
-}
+}*/
 
   fill(255,0,0);
   if (addHealth){
@@ -134,6 +134,7 @@ if (room == 8){
   s.coolDisplay();
   text(Player.hp, 100, 100);
   //popMatrix();
+
   
   if (s.isScreen()){
      previous = s; 
@@ -141,6 +142,8 @@ if (room == 8){
      prevY = Player.y;
     }
   }
+  
+
   else {
      s.display(); 
      buttons = s.getLocs();
