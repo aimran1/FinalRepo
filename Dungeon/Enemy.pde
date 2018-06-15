@@ -52,7 +52,7 @@ class Enemy extends Attack{
    speed = 2.5;
    steps = 0;
    turn = false;
-   hp = 20;
+   hp = 35;
    range = 1000;
   }
   

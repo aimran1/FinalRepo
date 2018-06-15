@@ -9,12 +9,12 @@ ArrayList<Enemy> LivingBad = new ArrayList();
 class Room1 extends Screen{
  Location[] elements; 
  Location[] gates;
- Enemy[] enemies = new Enemy[1];
+ Enemy[] enemies = new Enemy[0];
  Room1(int room){
  place = room;
  LivingBad.clear();
     //enemies[0] = new Enemy();
-    enemies[0] = new Enemy(142, 213, "hinox-sprite.png");
+ //   enemies[0] = new Enemy(142, 213, "hinox-sprite.png");
     //enemies[2] = new Enemy(180, 55, "hinox-sprite.png");
     //enemies[2] = new Enemy(width-100,height-100, "hinox-sprite.png");
     //enemies[3] = new Enemy(100, 730, "hinox-sprite.png");
@@ -127,7 +127,7 @@ class Room1 extends Screen{
    
     gates = new Location[0];
     
-    LivingBad.add(new Enemy(142, 213, 50,65));
+    LivingBad.add(new Enemy(142, 213, 65,65));
   }
 
 }

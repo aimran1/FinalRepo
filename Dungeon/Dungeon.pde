@@ -118,11 +118,16 @@ if (room == 7){
   }
 }
 
-/*if (room == 8){
- if  (get((int)Player.x,(int)Player.y) == gates){
-  s = new Room1(7); 
+if (room == 9){
+ if  (s.LivingBad.size() > 0){
+     fill(255,0,0);
+
+    for (int health = 0; health < s.LivingBad.get(0).getHP(); health++){
+          rect(180+health*4,528,4,10);
+    }  
  }
-}*/
+ fill(0);
+}
 
   fill(255,0,0);
   if (addHealth){
@@ -294,6 +299,7 @@ println(mouseX + " " + mouseY);
        mouseY >=buttons[2] && buttons[3] >= mouseY){
          println(":wast");
     s = new Screen();
+    room = 0;
     Player = new Link();
   }
  }
