@@ -106,18 +106,16 @@ class Room1 extends Screen{
     elements[5] = new Location(314.0,708.0,0.0,0.0,' ',0);
 
     gates = new Location[1];
-    gates[0] = new Location(145.0,65.0,53.0,-58.0,' ',color(0,0,225)); 
+    gates[0] = new Location(145.0,65.0,53.0,-58.0,' ',color(125, 0, 125)); 
   }
 
   else if(room == 7){
-    elements = new Location[6];
-    elements[0] = new Location(303.0,38.0,-302.0,-36.0,' ',0);
-    elements[1] = new Location(338.0,316.0,-35.0,-278.0,' ',0);
-    elements[2] = new Location(39.0,39.0,110.0,-30.0,' ',0);
-    elements[3] = new Location(38.0,275.0,-36.0,-272.0,' ',0);
-    elements[4] = new Location(341.0,5.0,-154.0,43.0,' ',0);
-    elements[5] = new Location(314.0,708.0,0.0,0.0,' ',0);
-
+    elements = new Location[4];
+    elements[0] = new Location(30.0,513.0,235.0,32.0,' ',0);
+    elements[1] = new Location(265.0,545.0,-31.0,-514.0,' ',0);
+    elements[2] = new Location(234.0,31.0,-231.0,-28.0,' ',0);
+    elements[3] = new Location(3.0,3.0,26.0,511.0,' ',0);
+   
     gates = new Location[0];
   }
 
@@ -166,7 +164,9 @@ class Room1 extends Screen{
  
  
  PImage map(){
-   screen1 = loadImage("room" + (place + 1)  + ".PNG");
+   if (place < 7){
+     screen1 = loadImage("room" + (place + 1)  + ".PNG");
+   }
    if (place == 7){
       screen1 =  loadImage("finalRoom.PNG");
    }

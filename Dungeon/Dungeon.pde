@@ -174,6 +174,12 @@ public void door(){
     Player.x = prevX;
     Player.y = prevY;
   }
+  else if (get((int)Player.x,(int)Player.y) == specialGate && !s.isScreen()){
+      room = 9;
+      s = new Room1(7);
+      Player.x = 125;
+      Player.y = 490;
+  }
   else if (get((int)Player.x,(int)Player.y) == gates && Player.x < height/2 && Player.y > height/2){
      room = 1;
     s = new Room1(0);
@@ -217,13 +223,20 @@ public void door(){
      Player.x = 20;
      Player.y = 115;
   }
-  else if (get((int)Player.x,(int)Player.y) == specialGate && Player.keys > 0){
+  else if (get((int)Player.x,(int)Player.y) == specialGate && Player.keys > 0 && s.isScreen()){
     room = 8;
     Player.keys -= 1;
     s = new Room1(6);
     Player.x = 49;
     Player.y = 163;
   }
+  else if (get((int)Player.x,(int)Player.y) == specialGate && !s.isScreen()){
+      room = 9;
+      s = new Room1(7);
+      Player.x = 125;
+      Player.y = 490;
+  }
+
 }
 
 public void keyReleased(){

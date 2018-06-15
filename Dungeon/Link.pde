@@ -10,7 +10,7 @@ class Link{
   PImage StandUp;
   PImage StandLeft;
   int hp,invincibleTime, attackFrame;
-  int keys = 0;
+  int keys = 1;
   PImage[] currentAttack;
   PImage[] currentMeta;
   PImage[] attackDown;
