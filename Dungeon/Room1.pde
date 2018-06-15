@@ -9,9 +9,18 @@ ArrayList<Enemy> LivingBad = new ArrayList();
 class Room1 extends Screen{
  Location[] elements; 
  Location[] gates;
- Enemy[] enemies;
+ Enemy[] enemies = new Enemy[1];
  Room1(int room){
  place = room;
+ LivingBad.clear();
+    //enemies[0] = new Enemy();
+    enemies[0] = new Enemy(142, 213, "hinox-sprite.png");
+    //enemies[2] = new Enemy(180, 55, "hinox-sprite.png");
+    //enemies[2] = new Enemy(width-100,height-100, "hinox-sprite.png");
+    //enemies[3] = new Enemy(100, 730, "hinox-sprite.png");
+  for (int i = 0; i <enemies.length;i++){
+     LivingBad.add(enemies[i]); 
+  }
   if (room == 0){
     elements = new Location[6];
     elements[0] = new Location(198.0,84.0,25.0,-80.0,' ',0);
@@ -130,10 +139,6 @@ class Room1 extends Screen{
     }
    }
   }
-  if (LivingBad.size() == 0){
-     done = true; 
-  }
-  
   for(int x = 0; x < blocks.length;x++){
     blocks[x].update(l);
    }
@@ -165,6 +170,7 @@ class Room1 extends Screen{
     blocks[x].display();
    }
  }
+ 
  
  
  PImage map(){

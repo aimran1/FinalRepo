@@ -28,6 +28,7 @@ boolean inColor(color c){
 public void setup() {
   size(1200, 873);
   imageMode(CENTER);
+  surface.setResizable(true);
   Player = new Link();
  /* rooms = new Screen[10];
   rooms[0] = new Screen();
@@ -61,6 +62,7 @@ public void draw() {
   //scale(2.0);
   background(255);
   if (Player.hp <= 0){
+    s = previous;
     s = new StartScreen(2);
   }
  if (!s.isStart()){
@@ -135,12 +137,20 @@ if (room == 7){
   text(Player.hp, 100, 100);
   //popMatrix();
 
-  
+println (room + " " + s.done);
+    
+    if (room == 9 & s.done){
+    s = previous;
+
+     s= new StartScreen(1);
+  }
   if (s.isScreen()){
      previous = s; 
      prevX = Player.x;
      prevY = Player.y;
     }
+       text(s.LivingBad.size(), width -100, height -100);
+
   }
   
 

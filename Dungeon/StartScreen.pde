@@ -3,11 +3,9 @@ class StartScreen extends Screen{
   int type;
   int clickX1,clickY1,clickX2,clickY2;
 StartScreen(int i){
-  size(1200,873);
   type = i;
     if ( i == 0){
        cover = loadImage("cover.jpg"); 
-       cover.resize(1200,873);
     clickX1 = 686;
     clickY1 = 779;
     clickX2 = 986;
@@ -16,17 +14,18 @@ StartScreen(int i){
     }
     if ( i == 1){
        cover = loadImage("victory.jpg"); 
+           clickX1 = 686;
+    clickY1 = 779;
+    clickX2 = 855;
+    clickY2 = 829;
     }  
     if ( i == 2){
        cover = loadImage("gameOver.png"); 
-              cover.resize(1200,873);
     clickX1 = 686;
     clickY1 = 779;
     clickX2 = 855;
     clickY2 = 829;
     }
-           println(clickX1 + " " + clickX2 + " " + clickY1 + " " + clickY2);
-
   }
   
   int[] getLocs(){
@@ -39,6 +38,7 @@ StartScreen(int i){
   }
   
   void display(){
+    surface.setSize(1200,873);
     imageMode(CENTER);
     if(type == 0){
     image(cover,width/2,height/2);
@@ -49,7 +49,16 @@ StartScreen(int i){
     textSize(35);
     fill(color(150,150,150));
     }
-else     if(type == 2){
+    else if(type == 1){
+    image(cover,width/2,height/2);
+    rect(686,779,174,50);
+    fill(0);
+    text("Play Again",686,779,860,829);
+ 
+    textSize(35);
+    fill(color(150,150,150));
+    }
+else if(type == 2){
     image(cover,width/2,height/2);
     rect(686,779,169,50);
     fill(0);
@@ -58,6 +67,7 @@ else     if(type == 2){
     textSize(35);
     fill(color(150,150,150));
     }
+    cover.resize(1200,873);
   }
   
     boolean isScreen(){
@@ -67,4 +77,6 @@ else     if(type == 2){
   boolean isStart(){
    return true; 
   }
+  
+  
 }
