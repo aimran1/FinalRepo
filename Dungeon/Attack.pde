@@ -5,7 +5,6 @@ class Attack{
   
   void attack(Attackable G, int dam){
     if(isLinks &&  !(G instanceof Link)){
-      //playerCollision(meanie, dam);
       if((inBet(G.getY(),y,y+Dheight)||inBet(G.getLowY(),y,y+Dheight)) && (inBet(G.getX(),x,x+Dwidth)||inBet(G.getRightX(),x,x+Dwidth))){
         G.hurt(dam);
       }

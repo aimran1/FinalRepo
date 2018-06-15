@@ -6,7 +6,7 @@ class Enemy extends Attack{
   float Dheight = 22;
   float speed, angle;
   PImage current;
-  PVector myPos, target, player;
+  PVector target, player;
   int hp,invincibleFrame;
   int range;
 
@@ -56,7 +56,6 @@ class Enemy extends Attack{
   
   void update(Link fg){
     target = new PVector(fg.getX()-getX(), fg.getY()- getY());
-    
       float temp = vx;
       float tempy = vy;
     if (sqrt(pow(target.x,2)+pow(target.y,2)) < range){
@@ -69,8 +68,6 @@ class Enemy extends Attack{
         x += vx;
       if(walkableY())
         y += vy;
-        
-        
       vx = temp;
       vy = tempy;
     } 
