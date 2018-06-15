@@ -127,7 +127,7 @@ class Room1 extends Screen{
    
     gates = new Location[0];
     
-    LivingBad.add(new Enemy(142, 213, 65,65));
+    LivingBad.add(new Enemy(142, 213, 65,65,true));
   }
 
 }

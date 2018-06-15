@@ -1,4 +1,4 @@
-class Turret extends Attack{
+class Turret extends Enemy{
   float flyx,flyy;
   float currx,curry;
   float speed, angle;
@@ -35,6 +35,7 @@ class Turret extends Attack{
       flyx = currx;
       flyy = curry;
     }
+    super.playerCollision(p);
   }
 
   void display(){

@@ -9,6 +9,7 @@ class Enemy extends Attack{
   PVector target, player;
   int hp,invincibleFrame;
   int range;
+  boolean boss = false;
 
   Enemy(){
    x = width/2;
@@ -39,9 +40,10 @@ class Enemy extends Attack{
    range =100;
   }
   
-  Enemy(float X, float Y, int r, int m){
+  Enemy(float X, float Y, int r, int m, boolean _boss){
    x = X;
    y = Y;
+   boss = _boss;
    current = loadImage("boss.png");
    current.resize(r,m);
    vx = 2;

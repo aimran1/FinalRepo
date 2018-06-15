@@ -50,6 +50,7 @@ public void setup() {
   f2.add(p);
   time= millis();
   //test code
+  turr.add(new Turret(width/2-10,height/2,200, Player));
   tests = new ArrayList();
 }
 
@@ -70,8 +71,11 @@ public void draw() {
     jerr.display();
   } 
 
-  if (millis() >= time + 5000){
+
+  if (millis() >= time + 1800){
+    if(dist(Player.x,turr.get(0).Ox,Player.y,turr.get(0).Oy) <= 200){ 
     turr.add(new Turret(width/2-10,height/2,200, Player));
+    }
     time = millis();
   //  return;
     //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
@@ -109,10 +113,11 @@ public void draw() {
    }
  }
 
-  Player.display();
   for (Turret m:turr){
      m.display(); 
   }
+    Player.display();
+
 //KEY CODE//
 if (room == 7){
   for (Iterator<Key> iterator = n.iterator(); iterator.hasNext();) {
