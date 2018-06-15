@@ -262,6 +262,8 @@ public void mouseClicked(){
   clickO=true;
  }
  
-
+  if (get(mouseX,mouseY) == color(150,150,150)){
+    s = new Screen();
+  }
  
 }

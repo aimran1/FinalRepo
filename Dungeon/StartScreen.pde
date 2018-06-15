@@ -18,7 +18,7 @@ StartScreen(int i){
     fill(0);
     text("Begin Your Quest",550,430,850,480);
     textSize(35);
-    fill(color(0,225,225));
+    fill(color(150,150,150));
   }
   
     boolean isScreen(){
