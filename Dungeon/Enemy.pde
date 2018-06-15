@@ -48,7 +48,6 @@ class Enemy extends Attack{
    current.resize(r,m);
    vx = 2;
    vy = 0;
-  // myPoa = new PVector(getX(), getY());
    speed = 2.5;
    steps = 0;
    turn = false;
@@ -93,9 +92,6 @@ class Enemy extends Attack{
         y += vy;
         steps += 1;
       }
-   /*   if (!walkableX() && !walkableY()){
-        steps = 200;
-      }*/
       if (steps == 100){
         steps = 0;
         turn = !turn; 

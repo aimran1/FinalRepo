@@ -10,7 +10,6 @@ StartScreen(int i){
     clickY1 = 779;
     clickX2 = 986;
     clickY2 = 829;
-
     }
     if ( i == 1){
        cover = loadImage("victory.jpg"); 
@@ -18,6 +17,7 @@ StartScreen(int i){
     clickY1 = 779;
     clickX2 = 855;
     clickY2 = 829;
+
     }  
     if ( i == 2){
        cover = loadImage("gameOver.png"); 
@@ -25,7 +25,18 @@ StartScreen(int i){
     clickY1 = 779;
     clickX2 = 855;
     clickY2 = 829;
+
     }
+        if ( i == 3){
+       cover = loadImage("controls.PNG"); 
+    clickX1 = 686;
+    clickY1 = 779;
+    clickX2 = 855;
+    clickY2 = 829;
+
+    }
+    
+    
     cover.resize(1200,873);
   }
   
@@ -48,7 +59,7 @@ StartScreen(int i){
     text("Begin Your Quest",686,779,986,829);
   
     textSize(35);
-    fill(color(150,150,150));
+    fill(color(0,255,255));
     }
     else if(type == 1){
     image(cover,width/2,height/2);
@@ -57,7 +68,7 @@ StartScreen(int i){
     text("Play Again",686,779,860,829);
  
     textSize(35);
-    fill(color(150,150,150));
+    fill(color(0,255,255));
     }
 else if(type == 2){
     image(cover,width/2,height/2);
@@ -66,7 +77,16 @@ else if(type == 2){
     text("Try Again",686,779,855,829);
  
     textSize(35);
-    fill(color(150,150,150));
+    fill(color(0,255,255));
+    }
+else if(type == 3){
+    image(cover,width/2,height/2);
+    rect(686,779,169,50);
+    fill(0);
+    text("I'm Ready!",686,779,855,829);
+ 
+    textSize(35);
+    fill(color(0,255,255));
     }
     cover.resize(1200,873);
   }

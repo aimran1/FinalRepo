@@ -2,6 +2,7 @@ import java.io.*;
 PImage screen1;
 int place;
 boolean done = false;
+int type = -1;
 Chest c;
 ArrayList<Enemy> LivingBad = new ArrayList();
  
@@ -13,11 +14,6 @@ class Room1 extends Screen{
  Room1(int room){
  place = room;
  LivingBad.clear();
-    //enemies[0] = new Enemy();
- //   enemies[0] = new Enemy(142, 213, "hinox-sprite.png");
-    //enemies[2] = new Enemy(180, 55, "hinox-sprite.png");
-    //enemies[2] = new Enemy(width-100,height-100, "hinox-sprite.png");
-    //enemies[3] = new Enemy(100, 730, "hinox-sprite.png");
   for (int i = 0; i <enemies.length;i++){
      LivingBad.add(enemies[i]); 
   }

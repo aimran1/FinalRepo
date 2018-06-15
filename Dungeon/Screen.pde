@@ -3,6 +3,7 @@ PImage screen;
 class Screen {
   Location[] elements; 
   Location[] gates;
+  int type = -1;
   Enemy[] enemies;
   boolean done = false;
   Location[] takeDown = new Location[0];
@@ -70,7 +71,6 @@ class Screen {
     enemies[0] = new Enemy();
     enemies[1] = new Enemy(width/2-70, height/2-110, "hinox-sprite.png");
     enemies[2] = new Enemy(180, 55, "hinox-sprite.png");
-    //enemies[2] = new Enemy(width-100,height-100, "hinox-sprite.png");
     enemies[3] = new Enemy(100, 730, "hinox-sprite.png");
 
     LivingBad = new ArrayList<Enemy>();

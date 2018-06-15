@@ -36,6 +36,7 @@ public void setup() {
   Player = new Link();
 
   s = new StartScreen(0);
+  s.type = 0;
   buttons = s.getLocs();
    chest = new Chest[2];
    Potion i = new Potion (69,150);
@@ -56,7 +57,6 @@ public void setup() {
 
 
 public void draw() {
-  //println(dist(turr1.Ox,Player.x,turr1.Oy,Player.y));
   background(255);
   if (Player.hp <= 0){
     s = previous;
@@ -79,8 +79,7 @@ if (!s.done){
       }
     
     time = millis();
-  //  return;
-    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
+
   } 
 }
 
@@ -90,8 +89,7 @@ if (room == 2 || room == 3 || s.isScreen()){
     turr.add(new Turret(width/2-10,height/2,200, Player));
     }
     time = millis();
-  //  return;
-    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
+
   }
 }
 
@@ -101,8 +99,6 @@ if ( room == 7){
     turr.add(new Turret(146,104,200, Player));
     }
     time = millis();
-  //  return;
-    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
   }
 }
 
@@ -112,8 +108,7 @@ if ( room == 8){
         turr.add(new Turret(184,181,200, Player));
         time = millis();
       }
-  //  return;
-    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
+
   }
 }
 
@@ -122,8 +117,6 @@ if ( room == 9){
       turr.add(new Turret(17,208,500, Player));
       turr.add(new Turret(253,212,500, Player));
       time = millis();
-  //  return;
-    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
   }
 }
 }
@@ -211,7 +204,6 @@ if (room == 9){
      prevX = Player.x;
      prevY = Player.y;
     }
-       text(s.LivingBad.size(), width -100, height -100);
 
   }
   
@@ -219,7 +211,6 @@ if (room == 9){
   else {
      s.display(); 
      buttons = s.getLocs();
-
   }
 }
 
@@ -325,9 +316,6 @@ public void door(){
 
 }
 
-void turretStuff(){
-
-}
 
 public void keyReleased(){
   Player.unInput(key); 
@@ -336,7 +324,8 @@ public void keyReleased(){
 public void mouseClicked(){
   
   //Development Code
- System.out.println(mouseX + " " + mouseY);
+// System.out.println(mouseX + " " + mouseY);
+// System.out.println(s.type);
  /*if(clickO){
   System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ',0)"); 
   tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',0));
@@ -349,13 +338,19 @@ public void mouseClicked(){
   clickO=true;
  }*/
  
-if (s.isStart()){            
-   if (mouseX >=buttons[0] && buttons[1] >= mouseX &&
+if (s.isStart()){    
+    if (mouseX >=buttons[0] && buttons[1] >= mouseX &&
+       mouseY >=buttons[2] && buttons[3] >= mouseY && s.type == 0){
+    s = new StartScreen(3);
+    room = 0;
+  }
+  else if (mouseX >=buttons[0] && buttons[1] >= mouseX &&
        mouseY >=buttons[2] && buttons[3] >= mouseY){
     s = new Screen();
-    room = 0;
+    room = -1;
     Player = new Link();
   }
+
  }
  
 }
