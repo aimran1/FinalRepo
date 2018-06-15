@@ -70,7 +70,7 @@ public void draw() {
   for(Location jerr: tests){
     jerr.display();
   } 
-
+if (!s.done){
   if (room == 1){
     if (!s.done) 
       if (millis() >= time + 1800){
@@ -125,6 +125,7 @@ if ( room == 9){
   //  return;
     //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
   }
+}
 }
 
   s.update(Player);

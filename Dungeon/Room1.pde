@@ -49,6 +49,9 @@ class Room1 extends Screen{
     gates = new Location[1];
     gates[0] = new Location(197.0,85.0,28.0,32.0,' ',color(0,225,225));
     
+    LivingBad.add(new Enemy(59, 65, "hinox-sprite.png"));
+    LivingBad.add(new Enemy(166, 157, "hinox-sprite.png"));
+    
   }
   
   else if (room == 2){
@@ -62,6 +65,10 @@ class Room1 extends Screen{
 
     gates = new Location[1];
     gates[0] = new Location(120.0,217.0,28.0,28.0,' ',color(0,225,225)); 
+    
+    LivingBad.add(new Enemy(131, 131, "hinox-sprite.png"));
+    LivingBad.add(new Enemy(200, 68, "hinox-sprite.png"));
+    LivingBad.add(new Enemy(65, 182, "hinox-sprite.png"));
   }
     
   else if (room == 3){
@@ -77,6 +84,12 @@ class Room1 extends Screen{
     gates = new Location[2];
     gates[0] = new Location(124.0,256.0,35.0,-30.0,' ',color(0,225,225));
     gates[1] = new Location(444.0,261.0,42.0,-33.0,' ',color(0,225,225));
+    
+    LivingBad.add(new Enemy(392, 76, "hinox-sprite.png"));
+    LivingBad.add(new Enemy(309, 150, "hinox-sprite.png"));
+    LivingBad.add(new Enemy(498, 204, "hinox-sprite.png"));
+    LivingBad.add(new Enemy(74, 68, "hinox-sprite.png"));
+    
   }
   
   else if (room == 4){
@@ -90,6 +103,10 @@ class Room1 extends Screen{
 
     gates = new Location[1];
     gates[0] = new Location(116.0,233.0,32.0,-25.0,' ',color(0,225,225)); 
+    
+    LivingBad.add(new Enemy(208, 60, "hinox-sprite.png"));
+    LivingBad.add(new Enemy(53, 53, "hinox-sprite.png"));
+    
   }
   
    else if (room == 5){
@@ -103,6 +120,9 @@ class Room1 extends Screen{
 
     gates = new Location[1];
     gates[0] = new Location(6.0,146.0,25.0,-37.0,' ',color(0,225,225)); 
+        
+    LivingBad.add(new Enemy(214, 58, "hinox-sprite.png"));
+    LivingBad.add(new Enemy(54, 71, "hinox-sprite.png"));
   }
   
   else if(room == 6){
@@ -115,7 +135,10 @@ class Room1 extends Screen{
     elements[5] = new Location(314.0,708.0,0.0,0.0,' ',0);
 
     gates = new Location[1];
-    gates[0] = new Location(145.0,65.0,53.0,-58.0,' ',color(125, 0, 125)); 
+    gates[0] = new Location(145.0,65.0,53.0,-58.0,' ',color(125, 0, 125));
+    
+    LivingBad.add(new Enemy(266, 233, "hinox-sprite.png"));
+    LivingBad.add(new Enemy(247, 77, "hinox-sprite.png"));
   }
 
   else if(room == 7){
