@@ -4,7 +4,7 @@ int place;
 boolean done = false;
 Chest c;
 ArrayList<Enemy> LivingBad = new ArrayList();
-
+ 
 
 class Room1 extends Screen{
  Location[] elements; 
@@ -144,8 +144,15 @@ class Room1 extends Screen{
   for(int x = 0; x < blocks.length;x++){
     blocks[x].update(l);
    }
-   if (LivingBad.size() == 0){
-      done = true; 
+   if(place != 0){
+     if (LivingBad.size() == 0){
+        done = true; 
+     }
+   }
+   else{
+     if(blocks[0].solved){
+       done = true;
+     }
    }
 }
 

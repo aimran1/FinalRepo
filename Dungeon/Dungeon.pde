@@ -71,7 +71,20 @@ public void draw() {
     jerr.display();
   } 
 
+  if (room == 1){
+    if (!s.done) 
+      if (millis() >= time + 1800){
+      if(dist(Player.x,turr.get(0).Ox,Player.y,turr.get(0).Oy) <= 200){ 
+      turr.add(new Turret(121,67,200, Player));
+      }
+    
+    time = millis();
+  //  return;
+    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
+  } 
+}
 
+if (room == 2 || room == 3 || s.isScreen()){
   if (millis() >= time + 1800){
     if(dist(Player.x,turr.get(0).Ox,Player.y,turr.get(0).Oy) <= 200){ 
     turr.add(new Turret(width/2-10,height/2,200, Player));
@@ -79,7 +92,40 @@ public void draw() {
     time = millis();
   //  return;
     //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
-  } 
+  }
+}
+
+if ( room == 7){
+  if (millis() >= time + 1800){
+    if(dist(Player.x,turr.get(0).Ox,Player.y,turr.get(0).Oy) <= 200){ 
+    turr.add(new Turret(146,104,200, Player));
+    }
+    time = millis();
+  //  return;
+    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
+  }
+}
+
+if ( room == 8){
+  if (millis() >= time + 1000){
+      if(dist(Player.x,turr.get(0).Ox,Player.y,turr.get(0).Oy) <= 200){ 
+        turr.add(new Turret(184,181,200, Player));
+        time = millis();
+      }
+  //  return;
+    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
+  }
+}
+
+if ( room == 9){
+  if (millis() >= time + 1000){
+      turr.add(new Turret(17,208,500, Player));
+      turr.add(new Turret(253,212,500, Player));
+      time = millis();
+  //  return;
+    //println(turr1.Ox + " " +turr1.Oy + " " + Player.x + " "+ Player.y);
+  }
+}
 
   s.update(Player);
   Player.update();
