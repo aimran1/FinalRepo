@@ -26,10 +26,10 @@ boolean inColor(color c){
  }
 
 public void setup() {
-  size(1200, 873);
+  size(902, 507);
   imageMode(CENTER);
   Player = new Link();
-  rooms = new Screen[10];
+ /* rooms = new Screen[10];
   rooms[0] = new Screen();
   rooms[1] = new Room1(0);
   rooms[2] = new Room1(1);
@@ -37,8 +37,8 @@ public void setup() {
   rooms[4] = new Room1(3);
   rooms[5] = new Room1(4);
   rooms[6] = new Room1(5);
-  s = rooms[0];
-  s = new Screen();
+  s = rooms[0];*/
+  s = new StartScreen(0);
    chest = new Chest[2];
    Potion i = new Potion (69,150);
    Potion p = new Potion(310,120);

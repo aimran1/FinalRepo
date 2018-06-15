@@ -176,4 +176,8 @@ class Room1 extends Screen{
  boolean isScreen(){
     return false; 
  }
+   
+  boolean isStart(){
+   return false; 
+  }
 }

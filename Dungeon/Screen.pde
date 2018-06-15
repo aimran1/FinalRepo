@@ -134,4 +134,8 @@ void reenter(){
   boolean isScreen(){
      return true; 
   }
+    
+  boolean isStart(){
+   return false; 
+  }
 }
