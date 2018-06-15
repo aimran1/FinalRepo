@@ -17,7 +17,6 @@ class Enemy extends Attack{
    current.resize(20,25);
    vx = 2;
    vy = 0;
-  // myPoa = new PVector(getX(), getY());
    speed = 2.5;
    steps = 0;
    turn = false;
@@ -33,7 +32,6 @@ class Enemy extends Attack{
    current.resize(20,25);
    vx = 2;
    vy = 0;
-  // myPoa = new PVector(getX(), getY());
    speed = 2.5;
    steps = 0;
    turn = false;

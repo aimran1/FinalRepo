@@ -30,15 +30,7 @@ public void setup() {
   imageMode(CENTER);
   surface.setResizable(true);
   Player = new Link();
- /* rooms = new Screen[10];
-  rooms[0] = new Screen();
-  rooms[1] = new Room1(0);
-  rooms[2] = new Room1(1);
-  rooms[3] = new Room1(2);
-  rooms[4] = new Room1(3);
-  rooms[5] = new Room1(4);
-  rooms[6] = new Room1(5);
-  s = rooms[0];*/
+
   s = new StartScreen(0);
   buttons = s.getLocs();
    chest = new Chest[2];
@@ -57,9 +49,7 @@ public void setup() {
 
 
 public void draw() {
-  //pushMatrix();
-  //translate(-Player.getX(),-Player.getY());
-  //scale(2.0);
+
   background(255);
   if (Player.hp <= 0){
     s = previous;
@@ -70,7 +60,6 @@ public void draw() {
   s.pain(Player);
   fill(0);
   s.display();
-  //test code
   for(Location jerr: tests){
     jerr.display();
   } 
@@ -140,7 +129,6 @@ if (room == 9){
   fill(0);
   s.coolDisplay();
   text(Player.hp, 100, 100);
-  //popMatrix();
 
 println (room + " " + s.done);
     
@@ -164,19 +152,13 @@ println (room + " " + s.done);
      buttons = s.getLocs();
 
   }
-//  println(Player.keys);
 }
 
 
 
 public void keyPressed(){
 Player.moveInput(key); 
-/* if(key == TAB){
- s = rooms[0];
- Player = new Link();
- }
- if(key == ENTER)
- tests.remove(tests.size()-1);*/
+
  if(key == 'e'){
    door();
  }
@@ -279,7 +261,9 @@ public void keyReleased(){
 }
 
 public void mouseClicked(){
- System.out.println(mouseX + " " + mouseY);
+  
+  //Development Code
+ /*System.out.println(mouseX + " " + mouseY);
  if(clickO){
   System.out.println("elements[] = new Location("+param1[0]+","+param1[1]+","+(mouseX-param1[0])+","+(mouseY-param1[1])+",' ',0)"); 
   tests.add(new Location(param1[0],param1[1],mouseX-param1[0],mouseY-param1[1],' ',0));
@@ -290,14 +274,11 @@ public void mouseClicked(){
   param1[0] = mouseX;
   param1[1] = mouseY;
   clickO=true;
- }
+ }*/
  
  if (s.isStart()){            
-   println(buttons[0] + " " + buttons[1] + " " +buttons[2] + " " +buttons[3]);
-println(mouseX + " " + mouseY);
    if (mouseX >=buttons[0] && buttons[1] >= mouseX &&
        mouseY >=buttons[2] && buttons[3] >= mouseY){
-         println(":wast");
     s = new Screen();
     room = 0;
     Player = new Link();

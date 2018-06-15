@@ -213,7 +213,6 @@ class Link{
   }
   
   void display(){
-    //rect(x,y,Dwidth,Dheight);
     imageMode(CORNER);
     if(attackFrame >= 0){
       if(currentAttack == attackDown)
