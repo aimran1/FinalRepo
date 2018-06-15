@@ -8,6 +8,8 @@ class Enemy extends Attack{
   PImage current;
   PVector myPos, target, player;
   int hp,invincibleFrame;
+  int range;
+
   Enemy(){
    x = width/2;
    y = height/2;
@@ -20,6 +22,8 @@ class Enemy extends Attack{
    steps = 0;
    turn = false;
    hp = 20;
+      range =100;
+
   }
   
   Enemy(float X, float Y, String Image){
@@ -30,22 +34,34 @@ class Enemy extends Attack{
    vx = 2;
    vy = 0;
   // myPoa = new PVector(getX(), getY());
-   speed = 1;
+   speed = 2.5;
    steps = 0;
    turn = false;
    hp = 20;
+   range =100;
+  }
+  
+  Enemy(float X, float Y, int r, int m){
+   x = X;
+   y = Y;
+   current = loadImage("boss.png");
+   current.resize(r,m);
+   vx = 2;
+   vy = 0;
+  // myPoa = new PVector(getX(), getY());
+   speed = 2.5;
+   steps = 0;
+   turn = false;
+   hp = 20;
+   range = 1000;
   }
   
   void update(Link fg){
-    if (hp == 0){
-      current = loadImage("tombstone.png");
-      return; 
-    }
     target = new PVector(fg.getX()-getX(), fg.getY()- getY());
     
       float temp = vx;
       float tempy = vy;
-    if (sqrt(pow(target.x,2)+pow(target.y,2)) < 100){
+    if (sqrt(pow(target.x,2)+pow(target.y,2)) < range){
       target.normalize();
       target.x *= speed;
       target.y *= speed;
