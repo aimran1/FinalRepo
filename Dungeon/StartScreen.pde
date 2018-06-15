@@ -13,8 +13,12 @@ StartScreen(int i){
   }
   
   void display(){
-    imageMode(CORNER);
-    image(cover,0,0);
+    image(cover,width/2,height/2);
+    rect(550,430,300,50);
+    fill(0);
+    text("Begin Your Quest",550,430,850,480);
+    textSize(35);
+    fill(color(0,225,225));
   }
   
     boolean isScreen(){
